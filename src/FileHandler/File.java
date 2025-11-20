@@ -1,4 +1,4 @@
-package filehandler;
+package FileHandler;
 
 public class File {
 

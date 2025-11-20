@@ -7,6 +7,7 @@ public class Patients extends Person {
     private String address;
     private String postCode;
     private String emergencyNumber;
+    private String emergencyName;
     private String registration;
     private String gpId;
 
@@ -23,9 +24,9 @@ public class Patients extends Person {
         this.address = address;
         this.postCode = postCode;
         this.emergencyNumber = emergencyNumber;
+        this.emergencyName = emergencyName;
         this.registration = registration;
         this.gpId = gpId;
-        this.emergencyName = emergencyName;
     }
 
     public int getNhs_number() {
@@ -67,8 +68,6 @@ public class Patients extends Person {
     public void setPostCode(String postCode) {
         this.postCode = postCode;
     }
-
-    private String emergencyName;
 
     public String getEmergencyName() {
         return emergencyName;

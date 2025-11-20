@@ -1,5 +1,9 @@
 package launcher;
 
-public class App {
+import Views.PatientsGUI;
 
+public class App {
+    public static void main(String[] args) {
+        PatientsGUI view = new PatientsGUI();
+    }
 }

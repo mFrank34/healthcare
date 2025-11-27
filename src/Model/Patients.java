@@ -2,6 +2,7 @@ package Model;
 
 public class Patients extends Person {
     private int nhsNumber;
+    private String RawNhsNumber;
     private char gender;
     private String birth;
     private String address;
@@ -56,4 +57,11 @@ public class Patients extends Person {
     public String getGpId() { return gpId; }
     public void setGpId(String gpId) { this.gpId = gpId; }
 
+    public String getRawNhsNumber() {
+        return RawNhsNumber;
+    }
+
+    public void setRawNhsNumber(String rawNhsNumber) {
+        RawNhsNumber = rawNhsNumber;
+    }
 }

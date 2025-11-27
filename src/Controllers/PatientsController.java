@@ -16,20 +16,21 @@ public class PatientsController extends BaseController<Patients> {
 
         view.addSubmitListener(e -> {
             List<String> data = view.getData();
-            if (data.size() == 7) {
+            if (data.size() == 14) {
                 model.setId(data.get(0));
                 model.setFirst(data.get(1));
                 model.setLast(data.get(2));
                 model.setPhone(data.get(3));
                 model.setEmail(data.get(4));
-                try {
-                    model.setNhsNumber(Integer.parseInt(data.get(5)));
-                } catch (NumberFormatException ex) {
-                    view.showErrors(List.of("NHS number must be numeric"));
-                }
-                if (!data.get(6).isEmpty()) {
-                    model.setGender(data.get(6).charAt(0));
-                }
+                model.setRawNhsNumber(data.get(5));
+                model.setGender(data.get(6).isEmpty() ? '\0' : data.get(6).charAt(0));
+                model.setBirth(data.get(7));
+                model.setAddress(data.get(8));
+                model.setPostCode(data.get(9));
+                model.setEmergencyName(data.get(10));
+                model.setEmergencyNumber(data.get(11));
+                model.setRegistration(data.get(12));
+                model.setGpId(data.get(13));
             }
             handleSubmit();
         });

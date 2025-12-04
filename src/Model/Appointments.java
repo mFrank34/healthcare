@@ -10,6 +10,21 @@ public class Appointments {
     private String timeStamp;
     private String modifiedTime;
 
+    public Appointments() {}
+
+    public Appointments(String date, String time, String duration, String status,
+                        String reason, String notes, String timeStamp, String modifiedTime)
+    {
+        this.date = date;
+        this.time = time;
+        this.duration = duration;
+        this.status = status;
+        this.reason = reason;
+        this.notes = notes;
+        this.timeStamp = timeStamp;
+        this.modifiedTime = modifiedTime;
+    }
+
     public String getDate() {
         return date;
     }
@@ -72,5 +87,12 @@ public class Appointments {
 
     public void setModifiedTime(String modifiedTime) {
         this.modifiedTime = modifiedTime;
+    }
+
+    public static Appointments fromCSV(String lines) {
+        String[] parts = lines.split(",");
+         return new Appointments(
+                 parts[0], parts[1], parts[2], parts[3],
+                 parts[4], parts[5], parts[6], parts[7]);
     }
 }

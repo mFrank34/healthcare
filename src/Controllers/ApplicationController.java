@@ -1,15 +1,18 @@
-package Application;
+package Controllers;
 
+
+import Models.Application;
+import Views.ApplicationView;
 
 /**
  * Creating main Application for project
  * for managing view and model of Main Application...
  */
-public class HealthCareController {
-    private HealthCare model;
-    private HealthCareGUI view;
+public class ApplicationController {
+    private Application model;
+    private ApplicationView view;
 
-    public HealthCareController(HealthCare model, HealthCareGUI view) {
+    public ApplicationController(Application model, ApplicationView view) {
         this.model = model;
         this.view = view;
         initializeView();

@@ -2,9 +2,9 @@ package Launcher;
 
 import javax.swing.*;
 
-import Application.HealthCareController;
-import Application.HealthCare;
-import Application.HealthCareGUI;
+import Controllers.ApplicationController;
+import Models.Application;
+import Views.ApplicationView;
 
 public class App {
     public static void main(String[] args) {
@@ -19,15 +19,15 @@ public class App {
         System.out.println("Health Care system Starting...");
 
         // generate model
-        HealthCare model = new HealthCare();
+        Application model = new Application();
         System.out.println("Generated HealthCare model...");
 
         // generate view
-        HealthCareGUI view = new HealthCareGUI();
+        ApplicationView view = new ApplicationView();
         System.out.println("Generated HealthCare View...");
 
         // Create Constructor for project
-        HealthCareController controller = new HealthCareController(model, view);
+        ApplicationController controller = new ApplicationController(model, view);
         System.out.println("Created HealthCare Controller...");
 
         // Set controller into view

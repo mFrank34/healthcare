@@ -1,4 +1,4 @@
-package Repositories;
+package Repository;
 
 import Models.Appointment;
 
@@ -46,7 +46,7 @@ public class AppointmentRepository  extends BaseRepository<Appointment> {
     }
 
     @Override
-    protected boolean matchesId(Appointment obj, String id) {
-        return obj.getAppointmentId().equals(id);
+    protected String getId(Appointment obj) {
+        return obj.getAppointmentId();
     }
 }

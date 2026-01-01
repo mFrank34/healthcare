@@ -1,4 +1,4 @@
-package Repositories;
+package Repository;
 
 import Models.Facility;
 
@@ -49,7 +49,7 @@ public class FacilityRepository extends BaseRepository<Facility> {
     }
 
     @Override
-    protected boolean matchesId(Facility obj, String id) {
-        return obj.getFacilityId().equals(id);
+    protected String getId(Facility obj) {
+        return obj.getFacilityId();
     }
 }

@@ -1,12 +1,10 @@
-package Application;
+package Models;
 
 import FileHandlers.Handler;
-import Models.*;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class HealthCare {
+public class Application {
 
     /**
      * File Locations for application...
@@ -36,7 +34,7 @@ public class HealthCare {
     /**
      * Creates new Model with the current needed tables...
      */
-    public HealthCare() {
+    public Application() {
         appointments = new HashMap<String, Appointment>() ;
         clinicians = new HashMap<String, Clinician>();
         facilities = new HashMap<String, Facility>();

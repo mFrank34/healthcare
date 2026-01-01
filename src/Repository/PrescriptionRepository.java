@@ -1,4 +1,4 @@
-package Repositories;
+package Repository;
 
 import Models.Prescription;
 
@@ -53,7 +53,8 @@ public class PrescriptionRepository extends BaseRepository<Prescription> {
     }
 
     @Override
-    protected boolean matchesId(Prescription obj, String id) {
-        return obj.getPrescriptionId().equals(id);
+    protected String getId(Prescription obj) {
+        return obj.getPrescriptionId();
     }
+
 }

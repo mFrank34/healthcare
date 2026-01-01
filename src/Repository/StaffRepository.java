@@ -1,4 +1,4 @@
-package Repositories;
+package Repository;
 
 import Models.Staff;
 
@@ -51,7 +51,8 @@ public class StaffRepository extends BaseRepository<Staff> {
     }
 
     @Override
-    protected boolean matchesId(Staff obj, String id) {
-        return obj.getStaffId().equals(id);
+    protected String getId(Staff obj) {
+        return obj.getStaffId();
     }
+
 }

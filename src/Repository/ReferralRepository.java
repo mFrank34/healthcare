@@ -1,4 +1,4 @@
-package Repositories;
+package Repository;
 
 import Models.Referral;
 
@@ -49,7 +49,8 @@ public class ReferralRepository extends BaseRepository<Referral> {
     }
 
     @Override
-    protected boolean matchesId(Referral obj, String id) {
-        return obj.getReferralId().equals(id);
+    protected String getId(Referral obj) {
+        return obj.getReferralId();
     }
+
 }

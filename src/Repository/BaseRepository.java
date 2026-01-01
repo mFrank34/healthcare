@@ -1,12 +1,14 @@
-package Repositories;
+package Repository;
 
 import Utilities.Repository;
 import FileHandlers.Handler;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 
 public abstract class BaseRepository<T> implements Repository<T> {
-    protected ArrayList<T> items = new ArrayList<>();
+    protected HashMap<String, T> items = new HashMap<>();
     protected String fileName;
 
     public BaseRepository(String fileName) {
@@ -16,58 +18,50 @@ public abstract class BaseRepository<T> implements Repository<T> {
     @Override
     public void load() {
         items.clear();
-        ArrayList<String> lines = Handler.readLines(fileName);
+        var lines = Handler.readLines(fileName);
 
         boolean skip = true;
         for (String line : lines) {
-            if (skip) {
-                skip = false;
-                continue;
-            }
-            String[] parts = line.split(",");
-            items.add(parse(parts));
+            if (skip) { skip = false; continue; }
+            var parts = line.split(",");
+            T obj = parse(parts);
+            items.put(getId(obj), obj);
         }
     }
 
     @Override
     public void save() {
-        ArrayList<String> lines = new ArrayList<>();
+        var lines = new ArrayList<String>();
         lines.add(getHeader());
-
-        for (T obj : items) {
-            lines.add(toCSV(obj));
-        }
+        for (T obj : items.values()) lines.add(toCSV(obj));
         Handler.writeLines(fileName, lines);
     }
 
     @Override
-    public ArrayList<T> getAll() {
-        return items;
+    public Collection<T> getAll() {
+        return items.values();
     }
 
     @Override
     public T getById(String id) {
-        for (T obj : items) {
-            if (matchesId(obj, id)) return obj;
-        }
-        return null;
+        return items.get(id);
     }
 
     @Override
     public void add(T item) {
-        items.add(item);
+        items.put(getId(item), item);
         save();
     }
 
     @Override
     public void remove(String id) {
-        items.removeIf(obj -> matchesId(obj, id));
+        items.remove(id);
         save();
     }
 
-    // making my life easier you know
+    // abstract requirements
     protected abstract T parse(String[] data);
     protected abstract String toCSV(T obj);
     protected abstract String getHeader();
-    protected abstract boolean matchesId(T obj, String id);
+    protected abstract String getId(T obj);
 }

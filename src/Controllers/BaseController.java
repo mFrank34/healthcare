@@ -1,6 +1,6 @@
 package Controllers;
 
-import Interfaces.Validator;
+import Interface.Validator;
 import Views.BaseForm;
 import java.util.List;
 

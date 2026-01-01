@@ -2,9 +2,9 @@ package Launcher;
 
 import javax.swing.*;
 
-import Controllers.HealthCareController;
-import Model.HealthCare;
-import Views.HealthCareGUI;
+import Application.HealthCareController;
+import Application.HealthCare;
+import Application.HealthCareGUI;
 
 public class App {
     public static void main(String[] args) {

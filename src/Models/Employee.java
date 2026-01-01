@@ -1,4 +1,4 @@
-package Model;
+package Models;
 
 public class Employee extends Person {
     protected String staffId;

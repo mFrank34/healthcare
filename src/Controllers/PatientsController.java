@@ -1,7 +1,7 @@
 package Controllers;
 
 import Views.PatientsForm;
-import Model.Patient;
+import Models.Patient;
 import Validation.PatientValidator;
 
 // java imports

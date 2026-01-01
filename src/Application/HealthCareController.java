@@ -1,7 +1,4 @@
-package Controllers;
-
-import Model.HealthCare;
-import Views.HealthCareGUI;
+package Application;
 
 
 /**

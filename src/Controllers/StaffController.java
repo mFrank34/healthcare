@@ -1,7 +1,7 @@
 package Controllers;
 
 import Views.StaffForm;
-import Model.Staff;
+import Models.Staff;
 import Validation.StaffValidator;
 
 // java imports

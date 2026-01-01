@@ -1,4 +1,4 @@
-package Model;
+package Models;
 
 public class Facility {
     private String facilityId;

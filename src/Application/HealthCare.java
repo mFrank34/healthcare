@@ -1,6 +1,7 @@
-package Model;
+package Application;
 
-import FileHandler.CSVHandler;
+import FileHandlers.Handler;
+import Models.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -65,7 +66,7 @@ public class HealthCare {
      * Todo: complete appointment model
      */
     private void loadAppointments() {
-        ArrayList<String> lines = CSVHandler.readLines(LOCATION + APPOINTMENTS);
+        ArrayList<String> lines = Handler.readLines(LOCATION + APPOINTMENTS);
         for (String line : lines) {
             Appointment appointment = Appointment.fromCSV(line);
             appointments.put("empty sting", appointment);

@@ -1,7 +1,7 @@
 package Validation;
 
-import Interfaces.Validator;
-import Model.Clinician;
+import Interface.Validator;
+import Models.Clinician;
 
 import java.util.ArrayList;
 import java.util.List;

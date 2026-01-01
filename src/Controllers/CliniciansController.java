@@ -2,7 +2,7 @@ package Controllers;
 
 import Validation.CliniciansValidator;
 import Views.StaffForm;
-import Model.Clinician;
+import Models.Clinician;
 
 // java imports
 import java.util.List;

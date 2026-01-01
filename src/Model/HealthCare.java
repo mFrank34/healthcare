@@ -24,24 +24,24 @@ public class HealthCare {
      * storing data in memory for use within application
      * TODO - Complete Referrals...
      */
-    private HashMap<String, Appointments> appointments;
-    private HashMap<String, Clinicians> clinicians;
-    private HashMap<String, Facilities> facilities;
-    private HashMap<String, Patients> patients;
+    private HashMap<String, Appointment> appointments;
+    private HashMap<String, Clinician> clinicians;
+    private HashMap<String, Facility> facilities;
+    private HashMap<String, Patient> patients;
     private HashMap<String, Prescription> prescriptions;
-    private HashMap<String, Referrals> referrals;
+    private HashMap<String, Referral> referrals;
     private HashMap<String, Staff> staff;
 
     /**
      * Creates new Model with the current needed tables...
      */
     public HealthCare() {
-        appointments = new HashMap<String, Appointments>() ;
-        clinicians = new HashMap<String, Clinicians>();
-        facilities = new HashMap<String, Facilities>();
-        patients = new HashMap<String, Patients>();
+        appointments = new HashMap<String, Appointment>() ;
+        clinicians = new HashMap<String, Clinician>();
+        facilities = new HashMap<String, Facility>();
+        patients = new HashMap<String, Patient>();
         prescriptions = new HashMap<String, Prescription>();
-        referrals = new HashMap<String, Referrals>();
+        referrals = new HashMap<String, Referral>();
         staff = new HashMap<String, Staff>();
         loadAllData();
     }
@@ -62,12 +62,25 @@ public class HealthCare {
 
     /**
      * appointment System for collecting data around appointments
+     * Todo: complete appointment model
      */
     private void loadAppointments() {
         ArrayList<String> lines = CSVHandler.readLines(LOCATION + APPOINTMENTS);
-        for (int index = 0; index < lines.size(); index++) {
-            Appointments appointment = Appointments.fromCSV(lines.get(index));
-            appointments.put();
+        for (String line : lines) {
+            Appointment appointment = Appointment.fromCSV(line);
+            appointments.put("empty sting", appointment);
+        }
     }
+
+    private void saveAppointments() {
+        ArrayList<String> lines = new ArrayList<String>();
+        ArrayList<Appointment> appointmentList = new ArrayList<Appointment>(appointments.values());
+        for (Appointment Entry : appointmentList) {
+            lines.add(appointmentList.get(Entry).toCVS());
+        }
+
+
+    }
+
 
 }

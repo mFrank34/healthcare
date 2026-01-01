@@ -1,72 +1,95 @@
 package Model;
 
 public class Prescription {
-    private String date;
-    private String drug;
-    private int dosage;
+    private String prescriptionId;
+    private String patientId;
+    private String clinicianId;
+    private String appointmentId;
+    private String prescriptionDate;
+    private String medicationName;
+    private String dosage;
     private String frequency;
-    private String duration;
+    private int durationDays;
     private String quantity;
     private String instructions;
-    private String pharmacy;
+    private String pharmacyName;
     private String status;
-    private String issued;
-    private String collection;
 
-    public String getIssued() {
-        return issued;
-    }
+    // Constructors
+    public Prescription() {}
 
-    public void setIssued(String issued) {
-        this.issued = issued;
-    }
-
-    public String getCollection() {
-        return collection;
-    }
-
-    public void setCollection(String collection) {
-        this.collection = collection;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
+    public Prescription(String prescriptionId, String patientId, String clinicianId, String appointmentId,
+                        String prescriptionDate, String medicationName, String dosage, String frequency,
+                        int durationDays, String quantity, String instructions, String pharmacyName, String status) {
+        this.prescriptionId = prescriptionId;
+        this.patientId = patientId;
+        this.clinicianId = clinicianId;
+        this.appointmentId = appointmentId;
+        this.prescriptionDate = prescriptionDate;
+        this.medicationName = medicationName;
+        this.dosage = dosage;
+        this.frequency = frequency;
+        this.durationDays = durationDays;
+        this.quantity = quantity;
+        this.instructions = instructions;
+        this.pharmacyName = pharmacyName;
         this.status = status;
     }
 
-    public String getInstructions() {
-        return instructions;
+    public String getPrescriptionId() {
+        return prescriptionId;
     }
 
-    public void setInstructions(String instructions) {
-        this.instructions = instructions;
+    public void setPrescriptionId(String prescriptionId) {
+        this.prescriptionId = prescriptionId;
     }
 
-    public String getQuantity() {
-        return quantity;
+    public String getPatientId() {
+        return patientId;
     }
 
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
+    public void setPatientId(String patientId) {
+        this.patientId = patientId;
     }
 
-    public String getDuration() {
-        return duration;
+    public String getClinicianId() {
+        return clinicianId;
     }
 
-    public void setDuration(String duration) {
-        this.duration = duration;
+    public void setClinicianId(String clinicianId) {
+        this.clinicianId = clinicianId;
+    }
+
+    public String getAppointmentId() {
+        return appointmentId;
+    }
+
+    public void setAppointmentId(String appointmentId) {
+        this.appointmentId = appointmentId;
+    }
+
+    public String getPrescriptionDate() {
+        return prescriptionDate;
+    }
+
+    public void setPrescriptionDate(String prescriptionDate) {
+        this.prescriptionDate = prescriptionDate;
+    }
+
+    public String getMedicationName() {
+        return medicationName;
+    }
+
+    public void setMedicationName(String medicationName) {
+        this.medicationName = medicationName;
+    }
+
+    public String getDosage() {
+        return dosage;
+    }
+
+    public void setDosage(String dosage) {
+        this.dosage = dosage;
     }
 
     public String getFrequency() {
@@ -77,27 +100,43 @@ public class Prescription {
         this.frequency = frequency;
     }
 
-    public int getDosage() {
-        return dosage;
+    public int getDurationDays() {
+        return durationDays;
     }
 
-    public void setDosage(int dosage) {
-        this.dosage = dosage;
+    public void setDurationDays(int durationDays) {
+        this.durationDays = durationDays;
     }
 
-    public String getDrug() {
-        return drug;
+    public String getQuantity() {
+        return quantity;
     }
 
-    public void setDrug(String drug) {
-        this.drug = drug;
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 
-    public String getPharmacy() {
-        return pharmacy;
+    public String getInstructions() {
+        return instructions;
     }
 
-    public void setPharmacy(String pharmacy) {
-        this.pharmacy = pharmacy;
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
+    }
+
+    public String getPharmacyName() {
+        return pharmacyName;
+    }
+
+    public void setPharmacyName(String pharmacyName) {
+        this.pharmacyName = pharmacyName;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

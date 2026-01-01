@@ -2,15 +2,15 @@ package Controllers;
 
 import Validation.CliniciansValidator;
 import Views.StaffForm;
-import Model.Clinicians;
+import Model.Clinician;
 
 // java imports
 import java.util.List;
 
-public class CliniciansController extends BaseController<Clinicians> {
+public class CliniciansController extends BaseController<Clinician> {
     private final StaffForm staffView;
 
-    public CliniciansController(StaffForm view, Clinicians model) {
+    public CliniciansController(StaffForm view, Clinician model) {
         super(view, model, new CliniciansValidator());
         this.staffView = view;
 

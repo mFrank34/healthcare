@@ -1,14 +1,14 @@
 package Validation;
 
 import Interfaces.Validator;
-import Model.Patients;
+import Model.Patient;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PatientValidator implements Validator<Patients> {
+public class PatientValidator implements Validator<Patient> {
 
     @Override
-    public List<String> validate(Patients patient) {
+    public List<String> validate(Patient patient) {
         List<String> errors = new ArrayList<>();
         // error statements maybe could do with refactoring...
         if (patient.getId() == null || patient.getId().isEmpty()) {

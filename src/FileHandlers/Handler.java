@@ -44,7 +44,6 @@ public class Handler {
         } catch (IOException e) {
             System.err.println("Error reading file: " + filename + " -> " + e.getMessage());
         }
-
         return lines;
     }
 

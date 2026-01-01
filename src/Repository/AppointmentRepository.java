@@ -7,7 +7,7 @@ import static java.lang.Integer.parseInt;
 public class AppointmentRepository  extends BaseRepository<Appointment> {
 
     public AppointmentRepository() {
-        super("data/appointments.cvs");
+        super("data/appointments.csv");
         load();
     }
 

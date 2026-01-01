@@ -1,7 +1,7 @@
 package Repository;
 
-import Utilities.Repository;
 import FileHandlers.Handler;
+import Utilities.Repository;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -18,12 +18,19 @@ public abstract class BaseRepository<T> implements Repository<T> {
     @Override
     public void load() {
         items.clear();
-        var lines = Handler.readLines(fileName);
+        ArrayList<String> lines = Handler.readLines(fileName);
+        boolean skipHeader = true;
 
-        boolean skip = true;
         for (String line : lines) {
-            if (skip) { skip = false; continue; }
-            var parts = line.split(",");
+            if (skipHeader) {
+                skipHeader = false;
+                continue;
+            }
+            String[] parts = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)"); // Regex for fixing "something, something"
+            for (int i = 0; i < parts.length; i++) {
+                parts[i] = parts[i].replaceAll("^\"|\"$", "");
+            }
+
             T obj = parse(parts);
             items.put(getId(obj), obj);
         }

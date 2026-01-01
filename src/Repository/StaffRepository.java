@@ -54,5 +54,4 @@ public class StaffRepository extends BaseRepository<Staff> {
     protected String getId(Staff obj) {
         return obj.getStaffId();
     }
-
 }

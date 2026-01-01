@@ -1,4 +1,4 @@
-package Validation;
+package Application;
 
 public class HealthCareValidation {
 }

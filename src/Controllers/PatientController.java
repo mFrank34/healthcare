@@ -1,16 +1,16 @@
 package Controllers;
 
-import Views.PatientsForm;
+import Views.PatientView;
 import Models.Patient;
 import Validation.PatientValidator;
 
 // java imports
 import java.util.List;
 
-public class PatientsController extends BaseController<Patient> {
-    private final PatientsForm patientsView;
+public class PatientController extends BaseController<Patient> {
+    private final PatientView patientsView;
 
-    public PatientsController(PatientsForm view, Patient model) {
+    public PatientController(PatientView view, Patient model) {
         super(view, model, new PatientValidator());
         this.patientsView = view;
 

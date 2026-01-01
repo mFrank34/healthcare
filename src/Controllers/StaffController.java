@@ -1,6 +1,6 @@
 package Controllers;
 
-import Views.StaffForm;
+import Views.StaffView;
 import Models.Staff;
 import Validation.StaffValidator;
 
@@ -8,9 +8,9 @@ import Validation.StaffValidator;
 import java.util.List;
 
 public class StaffController extends BaseController<Staff> {
-    private final StaffForm staffView;
+    private final StaffView staffView;
 
-    public StaffController(StaffForm view, Staff model) {
+    public StaffController(StaffView view, Staff model) {
         super(view, model, new StaffValidator());
         this.staffView = view;
 

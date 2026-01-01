@@ -1,6 +1,6 @@
 package Views;
 
-public class PatientsForm extends BaseForm {
+public class PatientView {
 
     private static final String[] labels = {
             "ID:", "First Name:", "Last Name:", "Phone Number:", "Email:",
@@ -8,7 +8,4 @@ public class PatientsForm extends BaseForm {
             "Emergency Name:", "Emergency Number:", "Registration:", "GP - ID:"
     };
 
-    public PatientsForm() {
-        super("Patients Form", labels);
-    }
 }

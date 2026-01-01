@@ -1,6 +1,6 @@
 package Validation;
 
-import Interface.Validator;
+import Utilities.Validator;
 import Models.Patient;
 import java.util.ArrayList;
 import java.util.List;

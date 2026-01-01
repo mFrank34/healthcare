@@ -1,4 +1,4 @@
-package Interface;
+package Utilities;
 
 public interface Subject {
     public void registerObserver(Observer obs);

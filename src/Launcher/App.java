@@ -16,22 +16,22 @@ public class App {
     }
 
     private static void initializeApplication() {
-        System.out.println("Health Care system Starting...");
+        System.out.println("Application system Starting...");
 
         // generate model
         Application model = new Application();
-        System.out.println("Generated HealthCare model...");
+        System.out.println("Generated Application Model...");
 
         // generate view
         ApplicationView view = new ApplicationView();
-        System.out.println("Generated HealthCare View...");
+        System.out.println("Generated Application View...");
 
         // Create Constructor for project
         ApplicationController controller = new ApplicationController(model, view);
-        System.out.println("Created HealthCare Controller...");
+        System.out.println("Created Application Controller...");
 
         // Set controller into view
         view.setVisible(true);
-        System.out.println("application Running...");
+        System.out.println("Application Running...");
     }
 }

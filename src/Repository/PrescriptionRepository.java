@@ -1,6 +1,7 @@
 package Repository;
 
 import Models.Prescription;
+import Utilities.Constants;
 
 public class PrescriptionRepository extends BaseRepository<Prescription> {
 
@@ -49,7 +50,7 @@ public class PrescriptionRepository extends BaseRepository<Prescription> {
 
     @Override
     protected String getHeader() {
-        return "prescription_id,patient_id,clinician_id,appointment_id,prescription_date,medication_name,dosage,frequency,duration_days,quantity,instructions,pharmacy_name,status";
+        return String.join(",", Constants.PRESCRIPTIONS);
     }
 
     @Override

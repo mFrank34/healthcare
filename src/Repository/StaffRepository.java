@@ -1,6 +1,7 @@
 package Repository;
 
 import Models.Staff;
+import Utilities.Constants;
 
 public class StaffRepository extends BaseRepository<Staff> {
 
@@ -47,7 +48,7 @@ public class StaffRepository extends BaseRepository<Staff> {
 
     @Override
     protected String getHeader() {
-        return "staff_id,first_name,last_name,phone_number,email,employment_status,start_date,role,department,facility_id,access_level,line_manager";
+        return String.join(",", Constants.STAFF);
     }
 
     @Override

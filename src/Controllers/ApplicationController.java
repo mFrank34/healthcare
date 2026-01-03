@@ -15,8 +15,10 @@ public class ApplicationController {
     public ApplicationController(Application model, ApplicationView view) {
         this.model = model;
         this.view = view;
+
+
         initializeView();
-        settingEventViewers();
+        setupEventViewers();
     }
 
     /**
@@ -32,8 +34,12 @@ public class ApplicationController {
      * Looking into the event views
      * controlling them for later use case...
      */
-    private void settingEventViewers()
+    private void setupEventViewers()
     {
 
     }
 }
+
+
+// RefreshTable
+//

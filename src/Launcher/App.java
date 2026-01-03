@@ -1,10 +1,10 @@
 package Launcher;
 
-import javax.swing.*;
-
 import Controllers.ApplicationController;
 import Models.Application;
 import Views.ApplicationView;
+
+import javax.swing.*;
 
 public class App {
     public static void main(String[] args) {

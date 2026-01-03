@@ -1,6 +1,7 @@
 package Repository;
 
 import Models.Appointment;
+import Utilities.Constants;
 
 import static java.lang.Integer.parseInt;
 
@@ -42,7 +43,7 @@ public class AppointmentRepository  extends BaseRepository<Appointment> {
 
     @Override
     protected String getHeader() {
-        return "appointment_id,patient_id,clinician_id,facility_id,appointment_date,appointment_time,duration_minutes,appointment_type,status,reason_for_visit,notes,created_date,last_modified";
+        return String.join(",", Constants.APPOINTMENTS);
     }
 
     @Override

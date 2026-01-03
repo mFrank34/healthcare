@@ -1,6 +1,7 @@
 package Repository;
 
 import Models.Referral;
+import Utilities.Constants;
 
 public class ReferralRepository extends BaseRepository<Referral> {
 
@@ -45,7 +46,7 @@ public class ReferralRepository extends BaseRepository<Referral> {
 
     @Override
     protected String getHeader() {
-        return "referral_id,patient_id,clinician_id,referral_date,referral_type,referral_reason,urgency_level,referred_to_service,referral_status,appointment_date,outcome_notes";
+        return String.join(",", Constants.REFERRALS);
     }
 
     @Override

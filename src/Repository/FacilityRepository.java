@@ -1,6 +1,9 @@
 package Repository;
 
 import Models.Facility;
+import Utilities.Constants;
+
+import java.util.concurrent.CompletionService;
 
 public class FacilityRepository extends BaseRepository<Facility> {
 
@@ -45,7 +48,7 @@ public class FacilityRepository extends BaseRepository<Facility> {
 
     @Override
     protected String getHeader() {
-        return "facility_id,facility_name,facility_type,address,postcode,phone_number,email,opening_hours,manager_name,capacity,specialities_offered";
+        return String.join(",", Constants.FACILITIES);
     }
 
     @Override

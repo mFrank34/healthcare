@@ -1,6 +1,7 @@
 package Repository;
 
 import Models.Clinician;
+import Utilities.Constants;
 
 public class ClinicianRepository extends BaseRepository<Clinician> {
 
@@ -47,7 +48,7 @@ public class ClinicianRepository extends BaseRepository<Clinician> {
 
     @Override
     protected String getHeader() {
-        return "clinician_id,first_name,last_name,title,speciality,gmc_number,phone_number,email,workplace_id,workplace_type,employment_status,start_date";
+        return String.join(",", Constants.CLINICIANS);
     }
 
     @Override

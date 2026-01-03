@@ -47,6 +47,24 @@ public class StaffRepository extends BaseRepository<Staff> {
     }
 
     @Override
+    protected Object[] toTableRow(Staff obj) {
+        return new Object[]{
+                obj.getStaffId(),
+                obj.getFirstName(),
+                obj.getLastName(),
+                obj.getPhoneNumber(),
+                obj.getEmail(),
+                obj.getEmploymentStatus(),
+                obj.getStartDate(),
+                obj.getRole(),
+                obj.getDepartment(),
+                obj.getFacilityId(),
+                obj.getAccessLevel(),
+                obj.getLineManager()
+        };
+    }
+
+    @Override
     protected String getHeader() {
         return String.join(",", Constants.STAFF);
     }

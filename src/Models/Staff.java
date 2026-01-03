@@ -7,7 +7,8 @@ public class Staff extends Employee {
     private String accessLevel;
     private String lineManager;   // Only for staff
 
-    public Staff() {}
+    public Staff() {
+    }
 
     public Staff(String staffId, String firstName, String lastName, String phoneNumber, String email,
                  String employmentStatus, String startDate, String role, String department,

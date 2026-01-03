@@ -5,7 +5,7 @@ import Utilities.Constants;
 
 import static java.lang.Integer.parseInt;
 
-public class AppointmentRepository  extends BaseRepository<Appointment> {
+public class AppointmentRepository extends BaseRepository<Appointment> {
 
     public AppointmentRepository() {
         super("data/appointments.csv");
@@ -39,6 +39,25 @@ public class AppointmentRepository  extends BaseRepository<Appointment> {
                 obj.getCreatedDate(),
                 obj.getUpdatedDate()
         );
+    }
+
+    @Override
+    protected Object[] toTableRow(Appointment obj) {
+        return new Object[]{
+                obj.getAppointmentId(),
+                obj.getPatientId(),
+                obj.getClinicianId(),
+                obj.getFacilityId(),
+                obj.getAppointmentDate(),
+                obj.getAppointmentTime(),
+                String.valueOf(obj.getDurationMinutes()),
+                obj.getAppointmentType(),
+                obj.getStatus(),
+                obj.getReasonForVisit(),
+                obj.getNotes(),
+                obj.getCreatedDate(),
+                obj.getUpdatedDate()
+        };
     }
 
     @Override

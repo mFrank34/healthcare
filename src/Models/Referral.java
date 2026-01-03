@@ -13,7 +13,8 @@ public class Referral {
     private String appointmentDate;
     private String outcomeNotes;
 
-    public Referral() {}
+    public Referral() {
+    }
 
     public Referral(String referralId, String patientId, String clinicianId, String referralDate, String referralType,
                     String referralReason, String urgencyLevel, String referredToService, String referralStatus,

@@ -16,7 +16,8 @@ public class Prescription {
     private String status;
 
     // Constructors
-    public Prescription() {}
+    public Prescription() {
+    }
 
     public Prescription(String prescriptionId, String patientId, String clinicianId, String appointmentId,
                         String prescriptionDate, String medicationName, String dosage, String frequency,

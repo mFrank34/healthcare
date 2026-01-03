@@ -3,8 +3,6 @@ package Repository;
 import Models.Facility;
 import Utilities.Constants;
 
-import java.util.concurrent.CompletionService;
-
 public class FacilityRepository extends BaseRepository<Facility> {
 
     public FacilityRepository() {
@@ -44,6 +42,23 @@ public class FacilityRepository extends BaseRepository<Facility> {
                 String.valueOf(obj.getCapacity()),
                 obj.getSpecialitiesOffered()
         );
+    }
+
+    @Override
+    protected Object[] toTableRow(Facility obj) {
+        return new Object[]{
+                obj.getFacilityId(),
+                obj.getFacilityName(),
+                obj.getFacilityType(),
+                obj.getAddress(),
+                obj.getPostcode(),
+                obj.getPhoneNumber(),
+                obj.getEmail(),
+                obj.getOpeningHours(),
+                obj.getManagerName(),
+                String.valueOf(obj.getCapacity()),
+                obj.getSpecialitiesOffered()
+        };
     }
 
     @Override

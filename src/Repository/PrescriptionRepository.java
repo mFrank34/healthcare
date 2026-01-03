@@ -49,6 +49,25 @@ public class PrescriptionRepository extends BaseRepository<Prescription> {
     }
 
     @Override
+    protected Object[] toTableRow(Prescription obj) {
+        return new Object[] {
+                obj.getPrescriptionId(),
+                obj.getPatientId(),
+                obj.getClinicianId(),
+                obj.getAppointmentId(),
+                obj.getPrescriptionDate(),
+                obj.getMedicationName(),
+                obj.getDosage(),
+                obj.getFrequency(),
+                String.valueOf(obj.getDurationDays()),
+                obj.getQuantity(),
+                obj.getInstructions(),
+                obj.getPharmacyName(),
+                obj.getStatus()
+        };
+    }
+
+    @Override
     protected String getHeader() {
         return String.join(",", Constants.PRESCRIPTIONS);
     }

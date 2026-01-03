@@ -66,9 +66,28 @@ public abstract class BaseRepository<T> implements Repository<T> {
         save();
     }
 
+    @Override
+    public Object[][] toTableData() {
+        Object[][] data = new Object[items.size()][];
+        int i = 0;
+
+        for (T item : items.values()) {
+            data[i++] = toTableRow(item);
+        }
+
+        return data;
+    }
+
     // abstract requirements
     protected abstract T parse(String[] data);
+
     protected abstract String toCSV(T obj);
+
+    protected abstract Object[] toTableRow(T item);
+
     protected abstract String getHeader();
+
     protected abstract String getId(T obj);
+
+
 }

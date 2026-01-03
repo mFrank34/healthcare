@@ -7,7 +7,8 @@ public class Clinician extends Employee {
     private String workplaceId;
     private String workplaceType;
 
-    public Clinician() {}
+    public Clinician() {
+    }
 
     public Clinician(String staffId, String firstName, String lastName, String phoneNumber, String email,
                      String employmentStatus, String startDate, String title, String speciality,

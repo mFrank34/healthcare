@@ -5,7 +5,8 @@ public class Employee extends Person {
     protected String employmentStatus;
     protected String startDate;
 
-    public Employee() {}
+    public Employee() {
+    }
 
     public Employee(String staffId, String firstName, String lastName, String phoneNumber, String email,
                     String employmentStatus, String startDate) {

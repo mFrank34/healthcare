@@ -1,10 +1,6 @@
 package Views;
 
 import FactoryUI.Form;
-import Models.Staff;
-
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 
 public class StaffView extends Form {
     private static final String[] labels = {
@@ -14,7 +10,7 @@ public class StaffView extends Form {
     };
 
     StaffView() {
-      super("Staff Form", labels);
-    };
+        super("Staff Form", labels);
+    }
 
 }

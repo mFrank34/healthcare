@@ -47,6 +47,24 @@ public class ClinicianRepository extends BaseRepository<Clinician> {
     }
 
     @Override
+    protected Object[] toTableRow(Clinician obj) {
+        return new Object[]{
+                obj.getStaffId(),
+                obj.getFirstName(),
+                obj.getLastName(),
+                obj.getPhoneNumber(),
+                obj.getEmail(),
+                obj.getEmploymentStatus(),
+                obj.getStartDate(),
+                obj.getTitle(),
+                obj.getSpeciality(),
+                obj.getGmcNumber(),
+                obj.getWorkplaceId(),
+                obj.getWorkplaceType()
+        };
+    }
+
+    @Override
     protected String getHeader() {
         return String.join(",", Constants.CLINICIANS);
     }

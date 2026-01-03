@@ -20,23 +20,43 @@ public class PatientRepository extends BaseRepository<Patient> {
     }
 
     @Override
-    protected String toCSV(Patient p) {
+    protected String toCSV(Patient obj) {
         return String.join(",",
-                p.getPatientId(),
-                p.getFirstName(),
-                p.getLastName(),
-                p.getDateOfBirth(),
-                p.getNhsNumber(),
-                p.getGender(),
-                p.getPhoneNumber(),
-                p.getEmail(),
-                p.getAddress(),
-                p.getPostcode(),
-                p.getEmergencyContactName(),
-                p.getEmergencyContactPhone(),
-                p.getRegistrationDate(),
-                p.getGpSurgeryId()
+                obj.getPatientId(),
+                obj.getFirstName(),
+                obj.getLastName(),
+                obj.getDateOfBirth(),
+                obj.getNhsNumber(),
+                obj.getGender(),
+                obj.getPhoneNumber(),
+                obj.getEmail(),
+                obj.getAddress(),
+                obj.getPostcode(),
+                obj.getEmergencyContactName(),
+                obj.getEmergencyContactPhone(),
+                obj.getRegistrationDate(),
+                obj.getGpSurgeryId()
         );
+    }
+
+    @Override
+    protected Object[] toTableRow(Patient obj) {
+        return new Object[]{
+                obj.getPatientId(),
+                obj.getFirstName(),
+                obj.getLastName(),
+                obj.getDateOfBirth(),
+                obj.getNhsNumber(),
+                obj.getGender(),
+                obj.getPhoneNumber(),
+                obj.getEmail(),
+                obj.getAddress(),
+                obj.getPostcode(),
+                obj.getEmergencyContactName(),
+                obj.getEmergencyContactPhone(),
+                obj.getRegistrationDate(),
+                obj.getGpSurgeryId()
+        };
     }
 
     @Override

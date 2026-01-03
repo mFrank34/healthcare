@@ -45,6 +45,23 @@ public class ReferralRepository extends BaseRepository<Referral> {
     }
 
     @Override
+    protected Object[] toTableRow(Referral obj) {
+        return new Object[]{
+                obj.getReferralId(),
+                obj.getPatientId(),
+                obj.getClinicianId(),
+                obj.getReferralDate(),
+                obj.getReferralType(),
+                obj.getReferralReason(),
+                obj.getUrgencyLevel(),
+                obj.getReferredToService(),
+                obj.getReferralStatus(),
+                obj.getAppointmentDate(),
+                obj.getOutcomeNotes()
+        };
+    }
+
+    @Override
     protected String getHeader() {
         return String.join(",", Constants.REFERRALS);
     }

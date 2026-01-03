@@ -15,7 +15,8 @@ public class Appointment {
     private String createdDate;
     private String updatedDate;
 
-    public Appointment() {}
+    public Appointment() {
+    }
 
     public Appointment(String appointmentId, String patientId, String clinicianId, String facilityId,
                        String appointmentDate, String appointmentTime, int durationMinutes, String appointmentType,

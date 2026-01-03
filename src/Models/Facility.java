@@ -13,7 +13,8 @@ public class Facility {
     private int capacity;
     private String specialitiesOffered;
 
-    public Facility() {}
+    public Facility() {
+    }
 
     public Facility(String facilityId, String facilityName, String facilityType, String address, String postcode,
                     String phoneNumber, String email, String openingHours, String managerName,

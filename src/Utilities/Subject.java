@@ -1,7 +1,9 @@
 package Utilities;
 
 public interface Subject {
-    public void registerObserver(Observer obs);
-    public void removeObserver(Observer obs);
-    public void notifyObserver();
+    void registerObserver(Observer obs);
+
+    void removeObserver(Observer obs);
+
+    void notifyObserver();
 }

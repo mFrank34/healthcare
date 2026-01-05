@@ -1,11 +1,10 @@
 package Views;
 
 import Controllers.ApplicationController;
-import FactoryUI.ActionButton;
-import FactoryUI.TablePanel;
+import FactoryUI.ManagementPanel;
+import Utilities.Constants;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -34,36 +33,98 @@ public class ApplicationView extends JFrame {
 
     private void initComponents() {
         JTabbedPane tabbedPane = new JTabbedPane();
+        ManagementPanel fab = new ManagementPanel();
 
-        // Get all data from controller first
+        // Facility Management
+        tabbedPane.addTab("Facility",
+                fab.createManagementPanel(
+                        "Facility Management",
+                        Constants.FACILITIES,
+                        controller.getFacilitiesData(),
+                        () -> controller.addFacilities(),
+                        () -> controller.editFacilities(),
+                        () -> controller.removeFacilities(),
+                        () -> controller.refreshFacilities()
+                )
+        );
 
-        Object[][] appointmentsData = controller.getAppointmentsData();
-        Object[][] prescriptionsData = controller.getPrescriptionsData();
-        Object[][] patientsData = controller.getPatientsData();
-        Object[][] cliniciansData = controller.getCliniciansData();
-        Object[][] staffData = controller.getStaffData();
-        Object[][] referralsData = controller.getReferralsData();
+        // Appointment Management
+        tabbedPane.addTab("Appointments",
+                fab.createManagementPanel(
+                        "Appointment Management",
+                        Constants.APPOINTMENTS,
+                        controller.getAppointmentsData(),
+                        () -> controller.addAppointment(),
+                        () -> controller.editAppointment(),
+                        () -> controller.removeAppointment(),
+                        () -> controller.refreshAppointments()
+                )
+        );
 
-        // Create tabs with data
-        tabbedPane.addTab("Facility", createFacilityPanel());
-
-        tabbedPane.addTab("Appointment",
-                TablePanel.createTablePanel(Utilities.Constants.APPOINTMENTS, appointmentsData));
-
+        // Prescriptions
         tabbedPane.addTab("Prescriptions",
-                TablePanel.createTablePanel(Utilities.Constants.PRESCRIPTIONS, prescriptionsData));
+                fab.createManagementPanel(
+                        "Prescription Management",
+                        Constants.PRESCRIPTIONS,
+                        controller.getPrescriptionsData(),
+                        () -> controller.addPrescription(),
+                        () -> controller.editPrescription(),
+                        () -> controller.removePrescription(),
+                        () -> controller.refreshPrescriptions()
+                )
+        );
 
+        // Patients
         tabbedPane.addTab("Patients",
-                TablePanel.createTablePanel(Utilities.Constants.PATIENTS, patientsData));
+                fab.createManagementPanel(
+                        "Patient Management",
+                        Constants.PATIENTS,
+                        controller.getPatientsData(),
+                        () -> controller.addPatient(),
+                        () -> controller.editPatient(),
+                        () -> controller.removePatient(),
+                        () -> controller.refreshPatients()
+                )
+        );
 
+        // Clinicians
         tabbedPane.addTab("Clinicians",
-                TablePanel.createTablePanel(Utilities.Constants.CLINICIANS, cliniciansData));
+                fab.createManagementPanel(
+                        "Clinician Management",
+                        Constants.CLINICIANS,
+                        controller.getCliniciansData(),
+                        () -> controller.addClinician(),
+                        () -> controller.editClinician(),
+                        () -> controller.removeClinician(),
+                        () -> controller.refreshClinicians()
+                )
+        );
 
+        // Staff
         tabbedPane.addTab("Staff",
-                TablePanel.createTablePanel(Utilities.Constants.STAFF, staffData));
+                fab.createManagementPanel(
+                        "Staff Management",
+                        Constants.STAFF,
+                        controller.getStaffData(),
+                        () -> controller.addStaff(),
+                        () -> controller.editStaff(),
+                        () -> controller.removeStaff(),
+                        () -> controller.refreshStaff()
+                )
+        );
 
+        // Referrals
         tabbedPane.addTab("Referrals",
-                TablePanel.createTablePanel(Utilities.Constants.REFERRALS, referralsData));
+                fab.createManagementPanel(
+                        "Referral Management",
+                        Constants.REFERRALS,
+                        controller.getReferralsData(),
+                        () -> controller.addReferral(),
+                        () -> controller.editReferral(),
+                        () -> controller.removeReferral(),
+                        () -> controller.refreshReferrals()
+                )
+        );
 
         add(tabbedPane);
 
@@ -74,62 +135,5 @@ public class ApplicationView extends JFrame {
                 }
             }
         });
-
     }
-
-    private JPanel createFacilityPanel() {
-        // Boarder
-        JPanel panel = new JPanel(new BorderLayout(10,10));
-        panel.setBorder(BorderFactory.createEmptyBorder(10, 10,10,10));
-
-        // Title
-        JLabel titleLabel = new JLabel("Facility Management System");
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 18));
-        panel.add(titleLabel, BorderLayout.NORTH);
-
-        // Table
-        Object[][] facilitiesData = controller.getFacilitiesData();
-        panel.add(TablePanel.createTablePanel(Utilities.Constants.FACILITIES, facilitiesData));
-
-        // Button interactions
-        JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-
-        ActionButton addPatientButton = new ActionButton("Add Patient");
-        addPatientButton.addActionListener(e -> {
-            if (addPatientListener != null) {
-                addPatientListener.run();
-            }
-        });
-
-        ActionButton editPatientButton = new ActionButton("Edit Patient");
-        editPatientButton.addActionListener(e -> {
-            if (editPatientListener != null) {
-                editPatientListener.run();
-            }
-        });
-
-        ActionButton removePatientButton = new ActionButton("Remove Patient");
-        removePatientButton.addActionListener(e -> {
-            if (removePatientListener != null) {
-                removePatientListener.run();
-            }
-        });
-
-        ActionButton refreshButton = new ActionButton("Refresh");
-        refreshButton.addActionListener(e -> {
-            if (refreshListener != null) {
-                refreshListener.run();
-            }
-        });
-
-        // adding buttons to panel
-        buttonsPanel.add(addPatientButton);
-        buttonsPanel.add(editPatientButton);
-        buttonsPanel.add(removePatientButton);
-        buttonsPanel.add(refreshButton);
-
-        panel.add(buttonsPanel, BorderLayout.SOUTH);
-        return panel;
-    };
-
 }

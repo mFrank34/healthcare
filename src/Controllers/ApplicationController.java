@@ -66,4 +66,88 @@ public class ApplicationController {
     public Object[][] getReferralsData() {
         return model.referrals.toTableData();
     }
+
+    public void addFacilities() {
+    }
+
+    public void editFacilities() {
+    }
+
+    public void removeFacilities() {
+    }
+
+    public void refreshFacilities() {
+    }
+
+    public void addAppointment() {
+    }
+
+    public void editAppointment() {
+    }
+
+    public void removeAppointment() {
+    }
+
+    public void refreshAppointments() {
+    }
+
+    public void addPrescription() {
+    }
+
+    public void editPrescription() {
+    }
+
+    public void removePrescription() {
+    }
+
+    public void refreshPrescriptions() {
+    }
+
+    public void addPatient() {
+    }
+
+    public void editPatient() {
+    }
+
+    public void removePatient() {
+    }
+
+    public void refreshPatients() {
+    }
+
+    public void addClinician() {
+    }
+
+    public void editClinician() {
+    }
+
+    public void removeClinician() {
+    }
+
+    public void refreshClinicians() {
+    }
+
+    public void addStaff() {
+    }
+
+    public void editStaff() {
+    }
+
+    public void removeStaff() {
+    }
+
+    public void refreshStaff() {
+    }
+
+    public void addReferral() {
+    }
+
+    public void editReferral() {
+    }
+
+    public void removeReferral() {
+    }
+
+    public void refreshReferrals() {
+    }
 }

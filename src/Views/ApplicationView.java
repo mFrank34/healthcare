@@ -10,14 +10,13 @@ import java.awt.event.WindowEvent;
 public class ApplicationView extends JFrame {
     private ApplicationController controller;
     private Runnable onCloseListener;
-    private TablePanel Constants;
+
 
     public ApplicationView() {
         setTitle("Health Care Management System");
         setSize(900, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-
     }
 
     public void setController(ApplicationController controller) {
@@ -69,7 +68,11 @@ public class ApplicationView extends JFrame {
                 }
             }
         });
+
+
+
     }
+
 
 
 }

@@ -1,9 +1,11 @@
 package Views;
 
 import Controllers.ApplicationController;
+import FactoryUI.ActionButton;
 import FactoryUI.TablePanel;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -11,6 +13,11 @@ public class ApplicationView extends JFrame {
     private ApplicationController controller;
     private Runnable onCloseListener;
 
+    // Listener
+    private Runnable refreshListener;
+    private Runnable addPatientListener;
+    private Runnable removePatientListener;
+    private Runnable editPatientListener;
 
     public ApplicationView() {
         setTitle("Health Care Management System");
@@ -29,7 +36,7 @@ public class ApplicationView extends JFrame {
         JTabbedPane tabbedPane = new JTabbedPane();
 
         // Get all data from controller first
-        Object[][] facilitiesData = controller.getFacilitiesData();
+
         Object[][] appointmentsData = controller.getAppointmentsData();
         Object[][] prescriptionsData = controller.getPrescriptionsData();
         Object[][] patientsData = controller.getPatientsData();
@@ -38,8 +45,7 @@ public class ApplicationView extends JFrame {
         Object[][] referralsData = controller.getReferralsData();
 
         // Create tabs with data
-        tabbedPane.addTab("Facility",
-                TablePanel.createTablePanel(Utilities.Constants.FACILITIES, facilitiesData));
+        tabbedPane.addTab("Facility", createFacilityPanel());
 
         tabbedPane.addTab("Appointment",
                 TablePanel.createTablePanel(Utilities.Constants.APPOINTMENTS, appointmentsData));
@@ -69,10 +75,61 @@ public class ApplicationView extends JFrame {
             }
         });
 
-
-
     }
 
+    private JPanel createFacilityPanel() {
+        // Boarder
+        JPanel panel = new JPanel(new BorderLayout(10,10));
+        panel.setBorder(BorderFactory.createEmptyBorder(10, 10,10,10));
 
+        // Title
+        JLabel titleLabel = new JLabel("Facility Management System");
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        panel.add(titleLabel, BorderLayout.NORTH);
+
+        // Table
+        Object[][] facilitiesData = controller.getFacilitiesData();
+        panel.add(TablePanel.createTablePanel(Utilities.Constants.FACILITIES, facilitiesData));
+
+        // Button interactions
+        JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+
+        ActionButton addPatientButton = new ActionButton("Add Patient");
+        addPatientButton.addActionListener(e -> {
+            if (addPatientListener != null) {
+                addPatientListener.run();
+            }
+        });
+
+        ActionButton editPatientButton = new ActionButton("Edit Patient");
+        editPatientButton.addActionListener(e -> {
+            if (editPatientListener != null) {
+                editPatientListener.run();
+            }
+        });
+
+        ActionButton removePatientButton = new ActionButton("Remove Patient");
+        removePatientButton.addActionListener(e -> {
+            if (removePatientListener != null) {
+                removePatientListener.run();
+            }
+        });
+
+        ActionButton refreshButton = new ActionButton("Refresh");
+        refreshButton.addActionListener(e -> {
+            if (refreshListener != null) {
+                refreshListener.run();
+            }
+        });
+
+        // adding buttons to panel
+        buttonsPanel.add(addPatientButton);
+        buttonsPanel.add(editPatientButton);
+        buttonsPanel.add(removePatientButton);
+        buttonsPanel.add(refreshButton);
+
+        panel.add(buttonsPanel, BorderLayout.SOUTH);
+        return panel;
+    };
 
 }

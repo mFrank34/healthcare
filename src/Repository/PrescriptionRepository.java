@@ -50,7 +50,7 @@ public class PrescriptionRepository extends BaseRepository<Prescription> {
 
     @Override
     protected Object[] toTableRow(Prescription obj) {
-        return new Object[] {
+        return new Object[]{
                 obj.getPrescriptionId(),
                 obj.getPatientId(),
                 obj.getClinicianId(),

@@ -20,20 +20,20 @@ public class Employee extends Person {
         return staffId;
     }
 
-    public String getEmploymentStatus() {
-        return employmentStatus;
-    }
-
-    public String getStartDate() {
-        return startDate;
-    }
-
     public void setStaffId(String staffId) {
         this.staffId = staffId;
     }
 
+    public String getEmploymentStatus() {
+        return employmentStatus;
+    }
+
     public void setEmploymentStatus(String employmentStatus) {
         this.employmentStatus = employmentStatus;
+    }
+
+    public String getStartDate() {
+        return startDate;
     }
 
     public void setStartDate(String startDate) {

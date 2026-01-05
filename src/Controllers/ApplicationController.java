@@ -2,7 +2,6 @@ package Controllers;
 
 
 import Models.Application;
-import Models.Clinician;
 import Views.ApplicationView;
 
 /**
@@ -41,7 +40,6 @@ public class ApplicationController {
     public Object[][] getCliniciansData() {
         return model.clinicians.toTableData();
     }
-
 
     public Object[][] getFacilitiesData() {
         return model.facilities.toTableData();

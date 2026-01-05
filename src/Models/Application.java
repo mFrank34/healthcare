@@ -5,7 +5,7 @@ import Repository.*;
 /**
  * Main system for the Health Care System
  * renamed to Application to find easier in file structor
- * all things are public due to creating own Repository Structor
+ * all things are public due to creating own Repository structor
  * for handling cvs files in own bubble, to help with read ability...
  */
 public class Application {
@@ -18,6 +18,5 @@ public class Application {
     public ClinicianRepository clinicians = new ClinicianRepository();
 
     public Application() {
-
     }
 }

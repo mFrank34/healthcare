@@ -1,22 +1,18 @@
 package Views;
 
 import Controllers.ApplicationController;
+import FactoryUI.CenteredTab;
 import FactoryUI.ManagementPanel;
 import Utilities.Constants;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class ApplicationView extends JFrame {
     private ApplicationController controller;
     private Runnable onCloseListener;
-
-    // Listener
-    private Runnable refreshListener;
-    private Runnable addPatientListener;
-    private Runnable removePatientListener;
-    private Runnable editPatientListener;
 
     public ApplicationView() {
         setTitle("Health Care Management System");
@@ -33,6 +29,7 @@ public class ApplicationView extends JFrame {
 
     private void initComponents() {
         JTabbedPane tabbedPane = new JTabbedPane();
+        tabbedPane.setUI(new CenteredTab());
         ManagementPanel fab = new ManagementPanel();
 
         // Facility Management

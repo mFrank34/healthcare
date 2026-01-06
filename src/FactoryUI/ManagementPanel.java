@@ -3,8 +3,23 @@ package FactoryUI;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Management Panel for creating different pattens for the panel
+ */
 public class ManagementPanel {
 
+    /**
+     * Create new management panel based of following params
+     *
+     * @param title         title of the tab
+     * @param columns       labels for the table
+     * @param tableData     the data for the table
+     * @param addAction     button for interactions
+     * @param editAction    button for interactions
+     * @param removeAction  button for interactions
+     * @param refreshAction button for interactions
+     * @return returns panel with following layout
+     */
     public JPanel createManagementPanel(
             String title,
             String[] columns,
@@ -22,7 +37,7 @@ public class ManagementPanel {
         titleLabel.setFont(new Font("Arial", Font.BOLD, 18));
         panel.add(titleLabel, BorderLayout.NORTH);
 
-        // Table (integrated)
+        // Table
         JPanel tablePanel = TablePanel.createTablePanel(columns, tableData);
         panel.add(tablePanel, BorderLayout.CENTER);
 

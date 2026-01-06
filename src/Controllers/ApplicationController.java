@@ -33,10 +33,8 @@ public class ApplicationController {
      * controlling them for later use case...
      */
     private void setupEventViewers() {
-
     }
 
-    // data handlers
     public Object[][] getCliniciansData() {
         return model.clinicians.toTableData();
     }
@@ -65,6 +63,17 @@ public class ApplicationController {
         return model.referrals.toTableData();
     }
 
+    /**
+     * refreshed all the management panels,
+     * I'm aware this is super lazy...
+     */
+    public void refreshAll() {
+        System.out.println("Refreshing all Management Panels...");
+        view.refreshAll();
+    }
+
+    // ==================== Facility Management =======================
+
     public void addFacilities() {
     }
 
@@ -74,8 +83,7 @@ public class ApplicationController {
     public void removeFacilities() {
     }
 
-    public void refreshFacilities() {
-    }
+    // ==================== Appointment Management ====================
 
     public void addAppointment() {
     }
@@ -86,8 +94,7 @@ public class ApplicationController {
     public void removeAppointment() {
     }
 
-    public void refreshAppointments() {
-    }
+    // ==================== Prescription Management ===================
 
     public void addPrescription() {
     }
@@ -98,8 +105,7 @@ public class ApplicationController {
     public void removePrescription() {
     }
 
-    public void refreshPrescriptions() {
-    }
+    // ==================== Patient Management ========================
 
     public void addPatient() {
     }
@@ -110,8 +116,7 @@ public class ApplicationController {
     public void removePatient() {
     }
 
-    public void refreshPatients() {
-    }
+    // ==================== Clinician Management =======================
 
     public void addClinician() {
     }
@@ -122,8 +127,7 @@ public class ApplicationController {
     public void removeClinician() {
     }
 
-    public void refreshClinicians() {
-    }
+    // ==================== Staff Management ===========================
 
     public void addStaff() {
     }
@@ -134,8 +138,7 @@ public class ApplicationController {
     public void removeStaff() {
     }
 
-    public void refreshStaff() {
-    }
+    // ==================== Referral Management ========================
 
     public void addReferral() {
     }
@@ -144,8 +147,5 @@ public class ApplicationController {
     }
 
     public void removeReferral() {
-    }
-
-    public void refreshReferrals() {
     }
 }

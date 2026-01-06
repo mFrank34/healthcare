@@ -5,10 +5,18 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * button template for application
+ */
 public class ActionButton extends JButton {
 
     private boolean hover = false;
 
+    /**
+     * creates a button
+     *
+     * @param text text that needed within the button
+     */
     public ActionButton(String text) {
         super(text);
 
@@ -35,6 +43,10 @@ public class ActionButton extends JButton {
         });
     }
 
+    /**
+     * changes the hover effect of button
+     * @param g the <code>Graphics</code> object to protect
+     */
     @Override
     protected void paintComponent(Graphics g) {
         if (hover) {

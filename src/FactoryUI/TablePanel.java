@@ -4,11 +4,24 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
+/**
+ * table reset of all data and create a table
+ */
 public class TablePanel {
 
+    /**
+     * empty constructor
+     */
     public TablePanel() {
     }
 
+    /**
+     * creates a table based of the contents
+     *
+     * @param columns the columns of the table
+     * @param data    the data within the table
+     * @return return panel with the data in it
+     */
     public static JPanel createTablePanel(
             String[] columns,
             Object[][] data

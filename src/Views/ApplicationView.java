@@ -8,11 +8,16 @@ import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-
+/**
+ * application view system with ui elements
+ */
 public class ApplicationView extends JFrame {
     private ApplicationController controller;
     private Runnable onCloseListener;
 
+    /**
+     * constructor for application view
+     */
     public ApplicationView() {
         setTitle("Health Care Management System");
         setSize(900, 600);
@@ -20,12 +25,20 @@ public class ApplicationView extends JFrame {
         setLocationRelativeTo(null);
     }
 
+    /**
+     * sets the controller for the model
+     *
+     * @param controller current controller for the view
+     */
     public void setController(ApplicationController controller) {
         this.controller = controller;
         // add loader
         initComponents();
     }
 
+    /**
+     * initializes the tab components
+     */
     private void initComponents() {
         JTabbedPane tabbedPane = new JTabbedPane();
         ManagementPanel fab = new ManagementPanel();
@@ -39,7 +52,7 @@ public class ApplicationView extends JFrame {
                         () -> controller.addFacilities(),
                         () -> controller.editFacilities(),
                         () -> controller.removeFacilities(),
-                        () -> controller.refreshFacilities()
+                        () -> controller.refreshAll()
                 )
         );
 
@@ -52,7 +65,7 @@ public class ApplicationView extends JFrame {
                         () -> controller.addAppointment(),
                         () -> controller.editAppointment(),
                         () -> controller.removeAppointment(),
-                        () -> controller.refreshAppointments()
+                        () -> controller.refreshAll()
                 )
         );
 
@@ -65,7 +78,7 @@ public class ApplicationView extends JFrame {
                         () -> controller.addPrescription(),
                         () -> controller.editPrescription(),
                         () -> controller.removePrescription(),
-                        () -> controller.refreshPrescriptions()
+                        () -> controller.refreshAll()
                 )
         );
 
@@ -78,7 +91,7 @@ public class ApplicationView extends JFrame {
                         () -> controller.addPatient(),
                         () -> controller.editPatient(),
                         () -> controller.removePatient(),
-                        () -> controller.refreshPatients()
+                        () -> controller.refreshAll()
                 )
         );
 
@@ -91,7 +104,7 @@ public class ApplicationView extends JFrame {
                         () -> controller.addClinician(),
                         () -> controller.editClinician(),
                         () -> controller.removeClinician(),
-                        () -> controller.refreshClinicians()
+                        () -> controller.refreshAll()
                 )
         );
 
@@ -104,7 +117,7 @@ public class ApplicationView extends JFrame {
                         () -> controller.addStaff(),
                         () -> controller.editStaff(),
                         () -> controller.removeStaff(),
-                        () -> controller.refreshStaff()
+                        () -> controller.refreshAll()
                 )
         );
 
@@ -117,7 +130,7 @@ public class ApplicationView extends JFrame {
                         () -> controller.addReferral(),
                         () -> controller.editReferral(),
                         () -> controller.removeReferral(),
-                        () -> controller.refreshReferrals()
+                        () -> controller.refreshAll()
                 )
         );
 
@@ -129,5 +142,12 @@ public class ApplicationView extends JFrame {
                 }
             }
         });
+    }
+
+    /**
+     * refresh the init components section for full refresh
+     */
+    public void refreshAll() {
+        initComponents();
     }
 }

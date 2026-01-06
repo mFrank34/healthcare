@@ -140,17 +140,4 @@ public class ApplicationView extends JFrame {
             }
         });
     }
-
-
-    /**
-     * refresh the init components section for full refresh
-     * by removing the old panel and replacing it
-     */
-    public void refreshAll() {
-        SwingUtilities.invokeLater(() -> {
-            tabbedPane.revalidate();
-            tabbedPane.repaint();
-        });
-    }
-
 }

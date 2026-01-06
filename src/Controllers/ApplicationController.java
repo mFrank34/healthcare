@@ -63,15 +63,6 @@ public class ApplicationController {
         return model.referrals.toTableData();
     }
 
-    /**
-     * refreshed all the management panels,
-     * I'm aware this is super lazy...
-     */
-    public void refreshAll() {
-        System.out.println("Refreshing all Management Panels...");
-        view.refreshAll();
-    }
-
     // ==================== Facility Management =======================
 
     public void addFacilities() {

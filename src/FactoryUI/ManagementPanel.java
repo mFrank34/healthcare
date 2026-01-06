@@ -59,5 +59,3 @@ public class ManagementPanel {
         return panel;
     }
 }
-
-

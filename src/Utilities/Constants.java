@@ -1,5 +1,10 @@
 package Utilities;
 
+/**
+ * Constance that used within the program that don't change at all like table headers or cvs headers
+ * makes it easier to manage if something need to made change like tables load in wrong order, some what
+ * repaired here
+ */
 public class Constants {
 
     // Staff columns
@@ -116,7 +121,9 @@ public class Constants {
             "last_modified"
     };
 
-    // Private constructor to prevent instantiation
+    /**
+     * private constructor to prevent initialization as nothing should create this class
+     */
     private Constants() {
         throw new AssertionError("Cannot instantiate constants class");
     }

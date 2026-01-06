@@ -6,7 +6,14 @@ import Views.ApplicationView;
 
 import javax.swing.*;
 
+/**
+ * the main application runtime
+ */
 public class App {
+    /**
+     * runs the application
+     * @param args we don't use this, but useful if you want to run it with parameters
+     */
     static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -15,6 +22,9 @@ public class App {
         });
     }
 
+    /**
+     * code the connects the application controller to the model and view
+     */
     private static void initializeApplication() {
         System.out.println("Application system Starting...");
 

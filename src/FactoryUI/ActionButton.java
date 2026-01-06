@@ -13,15 +13,12 @@ public class ActionButton extends JButton {
         super(text);
 
         setFocusPainted(false);
-        setBorderPainted(false);
-        setContentAreaFilled(false);
-        setOpaque(false);
+
+        // Let the Look & Feel handle borders, background, shape
+        setContentAreaFilled(true);
+        setOpaque(true);
 
         setFont(new Font("Arial", Font.BOLD, 14));
-        setForeground(Color.BLACK);
-
-        // Default size (still resizable by layout)
-        setPreferredSize(new Dimension(156, 56));
 
         addMouseListener(new MouseAdapter() {
             @Override
@@ -40,18 +37,13 @@ public class ActionButton extends JButton {
 
     @Override
     protected void paintComponent(Graphics g) {
-        Graphics2D g2 = (Graphics2D) g.create();
-
-        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                RenderingHints.VALUE_ANTIALIAS_ON);
-
-        g2.setColor(hover
-                ? new Color(200, 200, 200)
-                : new Color(220, 220, 220));
-
-        g2.fillRect(0, 0, getWidth(), getHeight());
-
-        g2.dispose();
+        if (hover) {
+            // Use theme background but slightly darker
+            Color base = getBackground();
+            Color hoverColor = base.darker();
+            g.setColor(hoverColor);
+            g.fillRect(0, 0, getWidth(), getHeight());
+        }
         super.paintComponent(g);
     }
 }

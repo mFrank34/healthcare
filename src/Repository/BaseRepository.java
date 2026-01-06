@@ -110,7 +110,6 @@ public abstract class BaseRepository<T> implements Repository<T> {
         for (T item : items.values()) {
             data[i++] = toTableRow(item);
         }
-
         return data;
     }
 

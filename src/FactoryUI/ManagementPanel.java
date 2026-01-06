@@ -104,6 +104,9 @@ public class ManagementPanel extends JPanel {
         panel.add(button);
     }
 
+    /**
+     * Error message to user
+     */
     private void showSelectWarning() {
         JOptionPane.showMessageDialog(
                 this,

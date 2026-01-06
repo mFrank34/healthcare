@@ -13,6 +13,17 @@ import java.awt.event.WindowEvent;
  */
 public class ApplicationView extends JFrame {
     private ApplicationController controller;
+    private JTabbedPane tabbedPane;
+
+    // panel system
+    private ManagementPanel facilityPanel;
+    private ManagementPanel appointmentPanel;
+    private ManagementPanel prescriptionPanel;
+    private ManagementPanel patientPanel;
+    private ManagementPanel clinicianPanel;
+    private ManagementPanel staffPanel;
+    private ManagementPanel referralPanel;
+
     private Runnable onCloseListener;
 
     /**
@@ -27,7 +38,6 @@ public class ApplicationView extends JFrame {
 
     /**
      * sets the controller for the model
-     *
      * @param controller current controller for the view
      */
     public void setController(ApplicationController controller) {
@@ -40,102 +50,89 @@ public class ApplicationView extends JFrame {
      * initializes the tab components
      */
     private void initComponents() {
-        JTabbedPane tabbedPane = new JTabbedPane();
-        ManagementPanel fab = new ManagementPanel();
+        tabbedPane = new JTabbedPane();
 
-        // Facility Management
-        tabbedPane.addTab("Facility",
-                fab.createManagementPanel(
-                        "Facility Management",
-                        Constants.FACILITIES,
-                        controller.getFacilitiesData(),
-                        () -> controller.addFacilities(),
-                        () -> controller.editFacilities(),
-                        () -> controller.removeFacilities(),
-                        () -> controller.refreshAll()
-                )
+        facilityPanel = new ManagementPanel(
+                "Facility Management",
+                Constants.FACILITIES,
+                controller.getFacilitiesData(),
+                controller::addFacilities,
+                controller::editFacilities,
+                controller::removeFacilities,
+                () -> facilityPanel.refresh(controller.getFacilitiesData())
         );
+        tabbedPane.addTab("Facility", facilityPanel);
 
-        // Appointment Management
-        tabbedPane.addTab("Appointments",
-                fab.createManagementPanel(
-                        "Appointment Management",
-                        Constants.APPOINTMENTS,
-                        controller.getAppointmentsData(),
-                        () -> controller.addAppointment(),
-                        () -> controller.editAppointment(),
-                        () -> controller.removeAppointment(),
-                        () -> controller.refreshAll()
-                )
+        appointmentPanel = new ManagementPanel(
+                "Appointment Management",
+                Constants.APPOINTMENTS,
+                controller.getAppointmentsData(),
+                controller::addAppointment,
+                controller::editAppointment,
+                controller::removeAppointment,
+                () -> appointmentPanel.refresh(controller.getAppointmentsData())
         );
+        tabbedPane.addTab("Appointments", appointmentPanel);
 
-        // Prescriptions
-        tabbedPane.addTab("Prescriptions",
-                fab.createManagementPanel(
-                        "Prescription Management",
-                        Constants.PRESCRIPTIONS,
-                        controller.getPrescriptionsData(),
-                        () -> controller.addPrescription(),
-                        () -> controller.editPrescription(),
-                        () -> controller.removePrescription(),
-                        () -> controller.refreshAll()
-                )
+        prescriptionPanel = new ManagementPanel(
+                "Prescription Management",
+                Constants.PRESCRIPTIONS,
+                controller.getPrescriptionsData(),
+                controller::addPrescription,
+                controller::editPrescription,
+                controller::removePrescription,
+                () -> prescriptionPanel.refresh(controller.getPrescriptionsData())
         );
+        tabbedPane.addTab("Prescriptions", prescriptionPanel);
 
-        // Patients
-        tabbedPane.addTab("Patients",
-                fab.createManagementPanel(
-                        "Patient Management",
-                        Constants.PATIENTS,
-                        controller.getPatientsData(),
-                        () -> controller.addPatient(),
-                        () -> controller.editPatient(),
-                        () -> controller.removePatient(),
-                        () -> controller.refreshAll()
-                )
+        patientPanel = new ManagementPanel(
+                "Patient Management",
+                Constants.PATIENTS,
+                controller.getPatientsData(),
+                controller::addPatient,
+                controller::editPatient,
+                controller::removePatient,
+                () -> patientPanel.refresh(controller.getPatientsData())
         );
+        tabbedPane.addTab("Patients", patientPanel);
 
-        // Clinicians
-        tabbedPane.addTab("Clinicians",
-                fab.createManagementPanel(
-                        "Clinician Management",
-                        Constants.CLINICIANS,
-                        controller.getCliniciansData(),
-                        () -> controller.addClinician(),
-                        () -> controller.editClinician(),
-                        () -> controller.removeClinician(),
-                        () -> controller.refreshAll()
-                )
+        clinicianPanel = new ManagementPanel(
+                "Clinician Management",
+                Constants.CLINICIANS,
+                controller.getCliniciansData(),
+                controller::addClinician,
+                controller::editClinician,
+                controller::removeClinician,
+                () -> clinicianPanel.refresh(controller.getCliniciansData())
         );
+        tabbedPane.addTab("Clinicians", clinicianPanel);
 
-        // Staff
-        tabbedPane.addTab("Staff",
-                fab.createManagementPanel(
-                        "Staff Management",
-                        Constants.STAFF,
-                        controller.getStaffData(),
-                        () -> controller.addStaff(),
-                        () -> controller.editStaff(),
-                        () -> controller.removeStaff(),
-                        () -> controller.refreshAll()
-                )
+        staffPanel = new ManagementPanel(
+                "Staff Management",
+                Constants.STAFF,
+                controller.getStaffData(),
+                controller::addStaff,
+                controller::editStaff,
+                controller::removeStaff,
+                () -> staffPanel.refresh(controller.getStaffData())
         );
+        tabbedPane.addTab("Staff", staffPanel);
 
-        // Referrals
-        tabbedPane.addTab("Referrals",
-                fab.createManagementPanel(
-                        "Referral Management",
-                        Constants.REFERRALS,
-                        controller.getReferralsData(),
-                        () -> controller.addReferral(),
-                        () -> controller.editReferral(),
-                        () -> controller.removeReferral(),
-                        () -> controller.refreshAll()
-                )
+        referralPanel = new ManagementPanel(
+                "Referral Management",
+                Constants.REFERRALS,
+                controller.getReferralsData(),
+                controller::addReferral,
+                controller::editReferral,
+                controller::removeReferral,
+                () -> referralPanel.refresh(controller.getReferralsData())
         );
+        tabbedPane.addTab("Referrals", referralPanel);
 
         add(tabbedPane);
+
         addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent e) {
                 if (onCloseListener != null) {
                     onCloseListener.run();
@@ -144,10 +141,16 @@ public class ApplicationView extends JFrame {
         });
     }
 
+
     /**
      * refresh the init components section for full refresh
+     * by removing the old panel and replacing it
      */
     public void refreshAll() {
-        initComponents();
+        SwingUtilities.invokeLater(() -> {
+            tabbedPane.revalidate();
+            tabbedPane.repaint();
+        });
     }
+
 }

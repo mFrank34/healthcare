@@ -15,15 +15,20 @@ public class ReferralRepository extends BaseRepository<Referral> {
         return new Referral(
                 r[0],  // referralId
                 r[1],  // patientId
-                r[2],  // clinicianId
-                r[3],  // referralDate
-                r[4],  // referralType
-                r[5],  // referralReason
-                r[6],  // urgencyLevel
-                r[7],  // referredToService
-                r[8],  // referralStatus
-                r[9],  // appointmentDate
-                r[10]  // outcomeNotes
+                r[2],  // referringClinicianId
+                r[3],  // referredToClinicianId
+                r[4],  // referringFacilityId
+                r[5],  // referredToFacilityId
+                r[6],  // referralDate
+                r[7],  // urgencyLevel
+                r[8],  // referralReason
+                r[9],  // clinicalSummary
+                r[10], // requestedInvestigations
+                r[11], // status
+                r[12], // appointmentId
+                r[13], // notes
+                r[14], // createdDate
+                r[15]  // lastUpdated
         );
     }
 
@@ -32,32 +37,43 @@ public class ReferralRepository extends BaseRepository<Referral> {
         return String.join(",",
                 obj.getReferralId(),
                 obj.getPatientId(),
-                obj.getClinicianId(),
+                obj.getReferringClinicianId(),
+                obj.getReferredToClinicianId(),
+                obj.getReferringFacilityId(),
+                obj.getReferredToFacilityId(),
                 obj.getReferralDate(),
-                obj.getReferralType(),
-                obj.getReferralReason(),
                 obj.getUrgencyLevel(),
-                obj.getReferredToService(),
-                obj.getReferralStatus(),
-                obj.getAppointmentDate(),
-                obj.getOutcomeNotes()
+                obj.getReferralReason(),
+                obj.getClinicalSummary(),
+                obj.getRequestedInvestigations(),
+                obj.getStatus(),
+                obj.getAppointmentId(),
+                obj.getNotes(),
+                obj.getCreatedDate(),
+                obj.getLastUpdated()
         );
     }
+
 
     @Override
     protected Object[] toTableRow(Referral obj) {
         return new Object[]{
                 obj.getReferralId(),
                 obj.getPatientId(),
-                obj.getClinicianId(),
+                obj.getReferringClinicianId(),
+                obj.getReferredToClinicianId(),
+                obj.getReferringFacilityId(),
+                obj.getReferredToFacilityId(),
                 obj.getReferralDate(),
-                obj.getReferralType(),
-                obj.getReferralReason(),
                 obj.getUrgencyLevel(),
-                obj.getReferredToService(),
-                obj.getReferralStatus(),
-                obj.getAppointmentDate(),
-                obj.getOutcomeNotes()
+                obj.getReferralReason(),
+                obj.getClinicalSummary(),
+                obj.getRequestedInvestigations(),
+                obj.getStatus(),
+                obj.getAppointmentId(),
+                obj.getNotes(),
+                obj.getCreatedDate(),
+                obj.getLastUpdated()
         };
     }
 

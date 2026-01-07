@@ -1,36 +1,48 @@
 package Models;
 
 public class Referral {
-    private String referralId;
-    private String patientId;
-    private String clinicianId;
-    private String referralDate;
-    private String referralType;
-    private String referralReason;
-    private String urgencyLevel;
-    private String referredToService;
-    private String referralStatus;
-    private String appointmentDate;
-    private String outcomeNotes;
+        private String referralId;
+        private String patientId;
+        private String referringClinicianId;
+        private String referredToClinicianId;
+        private String referringFacilityId;
+        private String referredToFacilityId;
+        private String referralDate;
+        private String urgencyLevel;
+        private String referralReason;
+        private String clinicalSummary;
+        private String requestedInvestigations;
+        private String status;
+        private String appointmentId;
+        private String notes;
+        private String createdDate;
+        private String lastUpdated;
 
-    public Referral() {
-    }
+        public Referral() {
+        }
 
-    public Referral(String referralId, String patientId, String clinicianId, String referralDate, String referralType,
-                    String referralReason, String urgencyLevel, String referredToService, String referralStatus,
-                    String appointmentDate, String outcomeNotes) {
-        this.referralId = referralId;
-        this.patientId = patientId;
-        this.clinicianId = clinicianId;
-        this.referralDate = referralDate;
-        this.referralType = referralType;
-        this.referralReason = referralReason;
-        this.urgencyLevel = urgencyLevel;
-        this.referredToService = referredToService;
-        this.referralStatus = referralStatus;
-        this.appointmentDate = appointmentDate;
-        this.outcomeNotes = outcomeNotes;
-    }
+        public Referral(String referralId, String patientId, String referringClinicianId, String referredToClinicianId,
+                        String referringFacilityId, String referredToFacilityId, String referralDate, String urgencyLevel,
+                        String referralReason, String clinicalSummary, String requestedInvestigations, String status,
+                        String appointmentId, String notes, String createdDate, String lastUpdated
+        ) {
+            this.referralId = referralId;
+            this.patientId = patientId;
+            this.referringClinicianId = referringClinicianId;
+            this.referredToClinicianId = referredToClinicianId;
+            this.referringFacilityId = referringFacilityId;
+            this.referredToFacilityId = referredToFacilityId;
+            this.referralDate = referralDate;
+            this.urgencyLevel = urgencyLevel;
+            this.referralReason = referralReason;
+            this.clinicalSummary = clinicalSummary;
+            this.requestedInvestigations = requestedInvestigations;
+            this.status = status;
+            this.appointmentId = appointmentId;
+            this.notes = notes;
+            this.createdDate = createdDate;
+            this.lastUpdated = lastUpdated;
+        }
 
     public String getReferralId() {
         return referralId;
@@ -48,12 +60,36 @@ public class Referral {
         this.patientId = patientId;
     }
 
-    public String getClinicianId() {
-        return clinicianId;
+    public String getReferringClinicianId() {
+        return referringClinicianId;
     }
 
-    public void setClinicianId(String clinicianId) {
-        this.clinicianId = clinicianId;
+    public void setReferringClinicianId(String referringClinicianId) {
+        this.referringClinicianId = referringClinicianId;
+    }
+
+    public String getReferredToClinicianId() {
+        return referredToClinicianId;
+    }
+
+    public void setReferredToClinicianId(String referredToClinicianId) {
+        this.referredToClinicianId = referredToClinicianId;
+    }
+
+    public String getReferringFacilityId() {
+        return referringFacilityId;
+    }
+
+    public void setReferringFacilityId(String referringFacilityId) {
+        this.referringFacilityId = referringFacilityId;
+    }
+
+    public String getReferredToFacilityId() {
+        return referredToFacilityId;
+    }
+
+    public void setReferredToFacilityId(String referredToFacilityId) {
+        this.referredToFacilityId = referredToFacilityId;
     }
 
     public String getReferralDate() {
@@ -64,12 +100,12 @@ public class Referral {
         this.referralDate = referralDate;
     }
 
-    public String getReferralType() {
-        return referralType;
+    public String getUrgencyLevel() {
+        return urgencyLevel;
     }
 
-    public void setReferralType(String referralType) {
-        this.referralType = referralType;
+    public void setUrgencyLevel(String urgencyLevel) {
+        this.urgencyLevel = urgencyLevel;
     }
 
     public String getReferralReason() {
@@ -80,43 +116,59 @@ public class Referral {
         this.referralReason = referralReason;
     }
 
-    public String getUrgencyLevel() {
-        return urgencyLevel;
+    public String getClinicalSummary() {
+        return clinicalSummary;
     }
 
-    public void setUrgencyLevel(String urgencyLevel) {
-        this.urgencyLevel = urgencyLevel;
+    public void setClinicalSummary(String clinicalSummary) {
+        this.clinicalSummary = clinicalSummary;
     }
 
-    public String getReferredToService() {
-        return referredToService;
+    public String getRequestedInvestigations() {
+        return requestedInvestigations;
     }
 
-    public void setReferredToService(String referredToService) {
-        this.referredToService = referredToService;
+    public void setRequestedInvestigations(String requestedInvestigations) {
+        this.requestedInvestigations = requestedInvestigations;
     }
 
-    public String getReferralStatus() {
-        return referralStatus;
+    public String getStatus() {
+        return status;
     }
 
-    public void setReferralStatus(String referralStatus) {
-        this.referralStatus = referralStatus;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public String getAppointmentDate() {
-        return appointmentDate;
+    public String getAppointmentId() {
+        return appointmentId;
     }
 
-    public void setAppointmentDate(String appointmentDate) {
-        this.appointmentDate = appointmentDate;
+    public void setAppointmentId(String appointmentId) {
+        this.appointmentId = appointmentId;
     }
 
-    public String getOutcomeNotes() {
-        return outcomeNotes;
+    public String getNotes() {
+        return notes;
     }
 
-    public void setOutcomeNotes(String outcomeNotes) {
-        this.outcomeNotes = outcomeNotes;
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    public String getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(String createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public String getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public void setLastUpdated(String lastUpdated) {
+        this.lastUpdated = lastUpdated;
     }
 }

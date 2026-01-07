@@ -27,15 +27,20 @@ public class Constants {
     public static final String[] REFERRALS = {
             "referral_id",
             "patient_id",
-            "clinician_id",
+            "referring_clinician_id",
+            "referred_to_clinician_id",
+            "referring_facility_id",
+            "referred_to_facility_id",
             "referral_date",
-            "referral_type",
-            "referral_reason",
             "urgency_level",
-            "referred_to_service",
-            "referral_status",
-            "appointment_date",
-            "outcome_notes"
+            "referral_reason",
+            "clinical_summary",
+            "requested_investigations",
+            "status",
+            "appointment_id",
+            "notes",
+            "created_date",
+            "last_updated"
     };
 
     // Prescription columns

@@ -7,9 +7,6 @@ import Validation.AppointmentValidator;
 import Views.ApplicationView;
 import Views.AppointmentView;
 
-import javax.security.auth.login.AccountNotFoundException;
-import java.awt.*;
-
 /**
  * Creating main Application for project
  * for managing view and model of Main Application...

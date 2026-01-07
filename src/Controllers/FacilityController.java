@@ -39,7 +39,7 @@ public class FacilityController {
         model = repository.CreateAndAdd(data);
         System.out.println("Saving: " + model);
 
-        view.showSuccess(Constants.MSG_APPOINTMENT_SAVED);
+        view.showSuccess(Constants.TITLE_SUCCESSFULLY);
         view.clearForm();
     }
 

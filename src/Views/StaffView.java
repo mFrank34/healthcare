@@ -1,6 +1,5 @@
 package Views;
 
-import Controllers.AppointmentController;
 import Controllers.StaffController;
 import FactoryUI.FormPanel;
 import Utilities.Constants;

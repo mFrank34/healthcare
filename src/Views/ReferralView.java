@@ -10,7 +10,7 @@ public class ReferralView extends BaseView<ReferralController> {
     }
 
     @Override
-    protected void setController(ReferralController controller) {
+    public void setController(ReferralController controller) {
         form = new FormPanel(labels);
         form.addSubmitListener(e -> controller.handleSubmit());
         form.addCancelListener(e -> controller.handleCancel());

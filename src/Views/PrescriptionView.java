@@ -10,8 +10,7 @@ public class PrescriptionView extends BaseView<PrescriptionController> {
     }
 
     @Override
-    protected void setController(PrescriptionController controller) {
-
+    public void setController(PrescriptionController controller) {
         form = new FormPanel(labels);
         form.addSubmitListener(e -> controller.handleSubmit());
         form.addCancelListener(e -> controller.handleCancel());

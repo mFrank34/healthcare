@@ -6,6 +6,7 @@ import Utilities.Repository;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * A base framework for handling objects creation and destruction
@@ -88,6 +89,18 @@ public abstract class BaseRepository<T> implements Repository<T> {
     public void add(T item) {
         items.put(getId(item), item);
         save();
+    }
+
+    /**
+     * helper function to make and return a model fast
+     * @param data data directly from a form
+     * @return return that object that was created so it stored within the model
+     */
+    public T CreateAndAdd(List<String> data) {
+        String[] parts = data.toArray(new String[0]);
+        T obj = parse(parts);
+        add(obj);
+        return obj;
     }
 
     /**

@@ -4,13 +4,12 @@ import java.util.List;
 
 /**
  * system to validate items entering a form field
- * @param <T> type of model that getting validated
  */
-public interface Validator<T> {
+public interface Validator {
     /**
      * validate with list of strings that was given
-     * @param Model the current model to covert to
+     * @param data list of data to check
      * @return returns list of items that validated
      */
-    List<String> validate(T Model);
+    List<String> validate(List<String> data);
 }

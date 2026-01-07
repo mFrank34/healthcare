@@ -5,10 +5,10 @@ import Utilities.Validator;
 
 import java.util.List;
 
-public class AppointmentValidator implements Validator<Appointment> {
+public class AppointmentValidator implements Validator {
 
     @Override
-    public List<String> validate(Appointment Model) {
+    public List<String> validate(List<String> data) {
         return List.of();
     }
 }

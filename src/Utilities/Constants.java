@@ -121,6 +121,13 @@ public class Constants {
             "last_modified"
     };
 
+    public static final String TITLE_ERROR = "Error";
+    public static final String TITLE_SUCCESS = "Success";
+    public static final String TITLE_VALIDATION_ERRORS = "Validation Errors";
+
+    public static final String MSG_APPOINTMENT_SAVED = "Appointment saved successfully!";
+    public static final String MSG_PATIENT_SAVED = "Patient saved successfully!";
+
     /**
      * private constructor to prevent initialization as nothing should create this class
      */

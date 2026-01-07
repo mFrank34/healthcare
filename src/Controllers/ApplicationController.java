@@ -2,7 +2,13 @@ package Controllers;
 
 
 import Models.Application;
+import Models.Appointment;
+import Validation.AppointmentValidator;
 import Views.ApplicationView;
+import Views.AppointmentView;
+
+import javax.security.auth.login.AccountNotFoundException;
+import java.awt.*;
 
 /**
  * Creating main Application for project
@@ -77,6 +83,12 @@ public class ApplicationController {
     // ==================== Appointment Management ====================
 
     public void addAppointment() {
+        Appointment appointment = new Appointment();
+        AppointmentView appointmentView = new AppointmentView();
+        AppointmentValidator appointmentValidator = new AppointmentValidator();
+
+        AppointmentController appointmentController = new AppointmentController(
+                appointment, appointmentView, appointmentValidator, model.appointments);
     }
 
     public void editAppointment() {

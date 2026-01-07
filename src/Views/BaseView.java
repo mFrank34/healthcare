@@ -8,16 +8,18 @@ import java.util.List;
 
 public class BaseView extends JFrame{
     private FormPanel form;
+    private final String[] labels;
 
-    public BaseView(String title) {
+    public BaseView(String title, String[] labels) {
         setTitle(title);
+        this.labels = labels;
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
 
     public void setController(Controllers.AppointmentController controller) {
-        form = new FormPanel(Constants.APPOINTMENTS);
+        form = new FormPanel(labels);
         form.addSubmitListener(e -> controller.handleSubmit());
         form.addCancelListener(e -> controller.handleCancel());
         add(form);

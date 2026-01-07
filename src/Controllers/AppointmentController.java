@@ -15,7 +15,11 @@ public class AppointmentController {
     private final AppointmentValidator validator;
     private final AppointmentRepository repository;
 
-    public AppointmentController(Appointment model, AppointmentView view, AppointmentValidator validator, AppointmentRepository repository) {
+    public AppointmentController(
+            Appointment model,
+            AppointmentView view,
+            AppointmentValidator validator,
+            AppointmentRepository repository) {
         this.model = model;
         this.view = view;
         this.validator = validator;
@@ -25,11 +29,6 @@ public class AppointmentController {
 
     public void handleSubmit() {
         List<String> data = view.getFormData();
-
-        for (int i = 0; i < data.size(); i++) {
-            System.out.println(i + " -> [" + data.get(i) + "]");
-        }
-
         List<String> errors = validator.validate(data);
 
         if (!errors.isEmpty()) {
@@ -46,6 +45,12 @@ public class AppointmentController {
 
     public void handleCancel() {
         view.clearForm();
-        view.setVisible(false);
+        view.dispose();
+    }
+
+    public void populate(String[] filledForm) {
+        for (int i = 0; i < filledForm.length; i++) {
+            view.setValue(i , filledForm[i]);
+        }
     }
 }

@@ -127,6 +127,19 @@ public abstract class BaseRepository<T> implements Repository<T> {
     }
 
     /**
+     * Converted Model into a List
+     * @return returns list of model
+     */
+    public String[] toList(T item) {
+        Object[] parts = toTableRow(item);
+        String[] list = new String[parts.length];
+        for (int i = 0; i < parts.length; i++) {
+            list[i] = String.valueOf(parts[i]);
+        }
+        return list;
+    }
+
+    /**
      * the parse that allows for different models to pass into object
      * @param data the string data from file
      * @return returns an object depending on the T Model

@@ -8,13 +8,12 @@ import java.awt.*;
  * Management Panel for CRUD-style tables
  */
 public class ManagementPanel extends JPanel {
-
     private JTable table;
     private DefaultTableModel tableModel;
+    private static final int ID_COLUMN_INDEX = 0;
 
     /**
      * Create new management panel based of following params
-     *
      * @param title         title of the tab
      * @param columns       labels for the table
      * @param tableData     the data for the table
@@ -115,4 +114,28 @@ public class ManagementPanel extends JPanel {
                 JOptionPane.WARNING_MESSAGE
         );
     }
+
+    /**
+     * Returns the value from the selected row at the given column index.
+     */
+    public Object getSelectedValue(int columnIndex) {
+        int selectedRow = table.getSelectedRow();
+
+        if (selectedRow == -1) {
+            return null;
+        }
+
+        return tableModel.getValueAt(selectedRow, columnIndex);
+    }
+
+    /**
+     * Helper function to make getting Id of collum easier to access
+     * @return string element of Id value
+     */
+    public String getSelectedId() {
+        Object id = getSelectedValue(ID_COLUMN_INDEX);
+        return id == null ? null : id.toString();
+    }
+
+
 }

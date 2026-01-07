@@ -1,16 +1,10 @@
 package Views;
 
-import FactoryUI.Form;
+import FactoryUI.FormPanel;
+import Utilities.Constants;
 
-public class StaffView extends Form {
-    private static final String[] labels = {
-            "ID:", "First Name:", "Last Name:", "Phone Number:",
-            "Email:", "Start Date:", "Status:", "Role:",
-            "Department:", "Facility:", "Line Manager:", "Access:"
-    };
-
-    StaffView() {
-        super("Staff Form", labels);
+public class StaffView extends BaseView {
+    public StaffView() {
+        super("Staff Form", Constants.STAFF);
     }
-
 }

@@ -56,9 +56,9 @@ public class ApplicationView extends JFrame {
                 "Facility Management",
                 Constants.FACILITIES,
                 controller.getFacilitiesData(),
-                controller::addFacilities,
-                controller::editFacilities,
-                controller::removeFacilities,
+                () -> controller.addFacilities(),
+                () -> controller.editFacilities(),
+                () -> controller.removeFacilities(),
                 () -> facilityPanel.refresh(controller.getFacilitiesData())
         );
         tabbedPane.addTab("Facility", facilityPanel);
@@ -67,9 +67,9 @@ public class ApplicationView extends JFrame {
                 "Appointment Management",
                 Constants.APPOINTMENTS,
                 controller.getAppointmentsData(),
-                controller::addAppointment,
-                controller::editAppointment,
-                controller::removeAppointment,
+                () -> controller.addAppointment(),
+                () -> controller.editAppointment(),
+                () -> controller.removeAppointment(),
                 () -> appointmentPanel.refresh(controller.getAppointmentsData())
         );
         tabbedPane.addTab("Appointments", appointmentPanel);
@@ -78,9 +78,9 @@ public class ApplicationView extends JFrame {
                 "Prescription Management",
                 Constants.PRESCRIPTIONS,
                 controller.getPrescriptionsData(),
-                controller::addPrescription,
-                controller::editPrescription,
-                controller::removePrescription,
+                () -> controller.addPrescription(),
+                () -> controller.editPrescription(),
+                () -> controller.removePrescription(),
                 () -> prescriptionPanel.refresh(controller.getPrescriptionsData())
         );
         tabbedPane.addTab("Prescriptions", prescriptionPanel);
@@ -89,9 +89,9 @@ public class ApplicationView extends JFrame {
                 "Patient Management",
                 Constants.PATIENTS,
                 controller.getPatientsData(),
-                controller::addPatient,
-                controller::editPatient,
-                controller::removePatient,
+                () -> controller.addPatient(),
+                () -> controller.editPatient(),
+                () -> controller.removePatient(),
                 () -> patientPanel.refresh(controller.getPatientsData())
         );
         tabbedPane.addTab("Patients", patientPanel);
@@ -100,9 +100,9 @@ public class ApplicationView extends JFrame {
                 "Clinician Management",
                 Constants.CLINICIANS,
                 controller.getCliniciansData(),
-                controller::addClinician,
-                controller::editClinician,
-                controller::removeClinician,
+                () -> controller.addClinician(),
+                () -> controller.editClinician(),
+                () ->controller.removeClinician(),
                 () -> clinicianPanel.refresh(controller.getCliniciansData())
         );
         tabbedPane.addTab("Clinicians", clinicianPanel);
@@ -111,9 +111,9 @@ public class ApplicationView extends JFrame {
                 "Staff Management",
                 Constants.STAFF,
                 controller.getStaffData(),
-                controller::addStaff,
-                controller::editStaff,
-                controller::removeStaff,
+                () -> controller.addStaff(),
+                () -> controller.editStaff(),
+                () -> controller.removeStaff(),
                 () -> staffPanel.refresh(controller.getStaffData())
         );
         tabbedPane.addTab("Staff", staffPanel);
@@ -122,9 +122,9 @@ public class ApplicationView extends JFrame {
                 "Referral Management",
                 Constants.REFERRALS,
                 controller.getReferralsData(),
-                controller::addReferral,
-                controller::editReferral,
-                controller::removeReferral,
+                () -> controller.addReferral(),
+                () -> controller.editReferral(),
+                () -> controller.removeReferral(),
                 () -> referralPanel.refresh(controller.getReferralsData())
         );
         tabbedPane.addTab("Referrals", referralPanel);
@@ -139,5 +139,43 @@ public class ApplicationView extends JFrame {
                 }
             }
         });
+    }
+
+    public void refresh() {
+        facilityPanel.refresh(controller.getFacilitiesData());
+        appointmentPanel.refresh(controller.getAppointmentsData());
+        prescriptionPanel.refresh(controller.getPrescriptionsData());
+        patientPanel.refresh(controller.getPatientsData());
+        clinicianPanel.refresh(controller.getCliniciansData());
+        staffPanel.refresh(controller.getStaffData());
+        referralPanel.refresh(controller.getReferralsData());
+    }
+
+    public String getSelectedFacility() {
+        return facilityPanel.getSelectedId();
+    }
+
+    public String getSelectedAppointment() {
+        return appointmentPanel.getSelectedId();
+    }
+
+    public String getSelectedPrescription() {
+        return prescriptionPanel.getSelectedId();
+    }
+
+    public String getSelectedPatient() {
+        return patientPanel.getSelectedId();
+    }
+
+    public String getSelectedClinician() {
+        return clinicianPanel.getSelectedId();
+    }
+
+    public String getSelectedStaff() {
+        return staffPanel.getSelectedId();
+    }
+
+    public String getSelectedReferral() {
+        return referralPanel.getSelectedId();
     }
 }

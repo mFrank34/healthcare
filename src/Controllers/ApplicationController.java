@@ -22,23 +22,6 @@ public class ApplicationController {
         this.model = model;
         this.view = view;
         view.setController(this);
-
-        initializeView();
-        setupEventViewers();
-    }
-
-    /**
-     * this Initial the view for person to see...
-     * looking at the different in application tables...
-     */
-    private void initializeView() {
-    }
-
-    /**
-     * Looking into the event views
-     * controlling them for later use case...
-     */
-    private void setupEventViewers() {
     }
 
     public Object[][] getCliniciansData() {
@@ -92,13 +75,32 @@ public class ApplicationController {
                 appointments, appointmentView, appointmentValidator, model.appointments);
 
         appointmentView.setVisible(true);
+        view.refresh();
     }
 
     public void editAppointment() {
+        String id = view.getSelectedAppointment();
 
+        Appointment appointment = model.appointments.getById(id);
+        String[] filledForm = model.appointments.toList(appointment);
+        model.appointments.remove(id);
+
+        AppointmentView appointmentView = new AppointmentView();
+        AppointmentValidator appointmentValidator = new AppointmentValidator();
+
+        AppointmentController controller = new AppointmentController(
+                appointment, appointmentView, appointmentValidator, model.appointments);
+
+        controller.populate(filledForm);
+        appointmentView.setVisible(true);
+
+        view.refresh();
     }
 
     public void removeAppointment() {
+         String id = view.getSelectedAppointment();
+         model.appointments.remove(id);
+         view.refresh();
     }
 
     // ==================== Prescription Management ===================

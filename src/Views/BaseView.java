@@ -6,9 +6,9 @@ import Utilities.Constants;
 import javax.swing.*;
 import java.util.List;
 
-public class BaseView extends JFrame{
-    private FormPanel form;
-    private final String[] labels;
+public abstract class BaseView<T> extends JFrame{
+    protected FormPanel form;
+    protected final String[] labels;
 
     public BaseView(String title, String[] labels) {
         setTitle(title);
@@ -18,12 +18,7 @@ public class BaseView extends JFrame{
         setLocationRelativeTo(null);
     }
 
-    public void setController(Controllers.AppointmentController controller) {
-        form = new FormPanel(labels);
-        form.addSubmitListener(e -> controller.handleSubmit());
-        form.addCancelListener(e -> controller.handleCancel());
-        add(form);
-    }
+    protected abstract void setController(T controller);
 
     public List<String> getFormData() {
         return form.getAllData();

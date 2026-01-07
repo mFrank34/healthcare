@@ -161,7 +161,7 @@ public class ApplicationController {
 
     public void removePrescription() {
         String id = view.getSelectedPrescription();
-        model.appointments.remove(id);
+        model.prescriptions.remove(id);
         view.refresh();
     }
 

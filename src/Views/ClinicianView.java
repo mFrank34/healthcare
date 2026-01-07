@@ -6,7 +6,7 @@ import Utilities.Constants;
 
 public class ClinicianView extends BaseView<CliniciansController> {
     public ClinicianView() {
-        super("Clinician", Constants.CLINICIANS);
+        super("Clinician Form", Constants.CLINICIANS);
     }
 
     @Override

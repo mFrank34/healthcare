@@ -6,7 +6,7 @@ import Utilities.Constants;
 
 public class AppointmentView extends BaseView<AppointmentController> {
     public AppointmentView() {
-        super("Appointment", Constants.APPOINTMENTS);
+        super("Appointment From", Constants.APPOINTMENTS);
     }
 
     @Override

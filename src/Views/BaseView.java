@@ -45,4 +45,8 @@ public class BaseView extends JFrame{
     public void clearForm() {
         form.clearFields();
     }
+
+    public void setValue(int index, String string) {
+        form.setValue(index, string);
+    }
 }

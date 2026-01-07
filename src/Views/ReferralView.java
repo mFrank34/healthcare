@@ -1,4 +1,9 @@
 package Views;
 
-public class ReferralView {
+import Utilities.Constants;
+
+public class ReferralView extends BaseView {
+    public ReferralView() {
+        super("Referral Form", Constants.REFERRALS);
+    }
 }

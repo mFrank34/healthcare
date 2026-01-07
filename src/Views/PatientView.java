@@ -1,11 +1,9 @@
 package Views;
 
-public class PatientView {
+import Utilities.Constants;
 
-    private static final String[] labels = {
-            "ID:", "First Name:", "Last Name:", "Phone Number:", "Email:",
-            "NHS Number:", "Gender:", "Birth Date:", "Address:", "PostCode:",
-            "Emergency Name:", "Emergency Number:", "Registration:", "GP - ID:"
-    };
-
+public class PatientView extends BaseView {
+    public PatientView() {
+        super("Patients Form", Constants.PATIENTS);
+    }
 }

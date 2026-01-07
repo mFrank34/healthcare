@@ -83,15 +83,19 @@ public class ApplicationController {
     // ==================== Appointment Management ====================
 
     public void addAppointment() {
-        Appointment appointment = new Appointment();
+        Appointment appointments = new Appointment();
+
         AppointmentView appointmentView = new AppointmentView();
         AppointmentValidator appointmentValidator = new AppointmentValidator();
 
-        AppointmentController appointmentController = new AppointmentController(
-                appointment, appointmentView, appointmentValidator, model.appointments);
+        AppointmentController controller = new AppointmentController(
+                appointments, appointmentView, appointmentValidator, model.appointments);
+
+        appointmentView.setVisible(true);
     }
 
     public void editAppointment() {
+
     }
 
     public void removeAppointment() {

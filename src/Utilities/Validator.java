@@ -12,4 +12,14 @@ public interface Validator {
      * @return returns list of items that validated
      */
     List<String> validate(List<String> data);
+
+    /**
+     * blank section check
+     * @param data data from forms
+     * @param index index of form data given
+     * @return returns true || false depending on state
+     */
+    default boolean isBlank(List<String> data, int index) {
+        return data.get(index).trim().isEmpty();
+    }
 }

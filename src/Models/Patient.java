@@ -7,17 +7,29 @@ public class Patient extends Person {
     private String gender;
     private String address;
     private String postcode;
-    private String EmergencyContactName;
-    private String EmergencyContactPhone;
-    private String RegistrationDate;
-    private String GpSurgeryId;
+    private String emergencyContactName;
+    private String emergencyContactPhone;
+    private String registrationDate;
+    private String gpSurgeryId;
 
     public Patient() {
     }
 
-    public Patient(String patientId, String firstName, String lastName, String phoneNumber, String email,
-                   String dateOfBirth, String nhsNumber, String gender, String address, String postcode, String EmergencyContactName,
-                   String EmergencyContactPhone, String RegistrationDate, String GpSurgeryId) {
+    public Patient(String patientId,
+                   String firstName,
+                   String lastName,
+                   String dateOfBirth,
+                   String nhsNumber,
+                   String gender,
+                   String phoneNumber,
+                   String email,
+                   String address,
+                   String postcode,
+                   String emergencyContactName,
+                   String emergencyContactPhone,
+                   String registrationDate,
+                   String gpSurgeryId
+    ) {
         super(firstName, lastName, phoneNumber, email);
         this.patientId = patientId;
         this.dateOfBirth = dateOfBirth;
@@ -25,11 +37,12 @@ public class Patient extends Person {
         this.gender = gender;
         this.address = address;
         this.postcode = postcode;
-        this.EmergencyContactName = EmergencyContactName;
-        this.EmergencyContactPhone = EmergencyContactPhone;
-        this.RegistrationDate = RegistrationDate;
-        this.GpSurgeryId = GpSurgeryId;
+        this.emergencyContactName = emergencyContactName;
+        this.emergencyContactPhone = emergencyContactPhone;
+        this.registrationDate = registrationDate;
+        this.gpSurgeryId = gpSurgeryId;
     }
+
 
     public String getPatientId() {
         return patientId;
@@ -80,34 +93,34 @@ public class Patient extends Person {
     }
 
     public String getEmergencyContactName() {
-        return EmergencyContactName;
+        return emergencyContactName;
     }
 
     public void setEmergencyContactName(String emergencyContactName) {
-        EmergencyContactName = emergencyContactName;
+        this.emergencyContactName = emergencyContactName;
     }
 
     public String getEmergencyContactPhone() {
-        return EmergencyContactPhone;
+        return emergencyContactPhone;
     }
 
     public void setEmergencyContactPhone(String emergencyContactPhone) {
-        EmergencyContactPhone = emergencyContactPhone;
+        this.emergencyContactPhone = emergencyContactPhone;
     }
 
     public String getRegistrationDate() {
-        return RegistrationDate;
+        return registrationDate;
     }
 
     public void setRegistrationDate(String registrationDate) {
-        RegistrationDate = registrationDate;
+        this.registrationDate = registrationDate;
     }
 
     public String getGpSurgeryId() {
-        return GpSurgeryId;
+        return gpSurgeryId;
     }
 
     public void setGpSurgeryId(String gpSurgeryId) {
-        GpSurgeryId = gpSurgeryId;
+        this.gpSurgeryId = gpSurgeryId;
     }
 }

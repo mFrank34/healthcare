@@ -14,14 +14,29 @@ public class Prescription {
     private String instructions;
     private String pharmacyName;
     private String status;
+    private String issueDate;
+    private String collectionDate;
 
     // Constructors
     public Prescription() {
     }
 
-    public Prescription(String prescriptionId, String patientId, String clinicianId, String appointmentId,
-                        String prescriptionDate, String medicationName, String dosage, String frequency,
-                        int durationDays, String quantity, String instructions, String pharmacyName, String status) {
+    public Prescription(String prescriptionId,
+                        String patientId,
+                        String clinicianId,
+                        String appointmentId,
+                        String prescriptionDate,
+                        String medicationName,
+                        String dosage,
+                        String frequency,
+                        int durationDays,
+                        String quantity,
+                        String instructions,
+                        String pharmacyName,
+                        String status,
+                        String issueDate,
+                        String collectionDate) {
+
         this.prescriptionId = prescriptionId;
         this.patientId = patientId;
         this.clinicianId = clinicianId;
@@ -35,6 +50,8 @@ public class Prescription {
         this.instructions = instructions;
         this.pharmacyName = pharmacyName;
         this.status = status;
+        this.issueDate = issueDate;
+        this.collectionDate = collectionDate;
     }
 
     public String getPrescriptionId() {
@@ -139,5 +156,21 @@ public class Prescription {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getIssueDate() {
+        return issueDate;
+    }
+
+    public void setIssueDate(String issueDate) {
+        this.issueDate = issueDate;
+    }
+
+    public String getCollectionDate() {
+        return collectionDate;
+    }
+
+    public void setCollectionDate(String collectionDate) {
+        this.collectionDate = collectionDate;
     }
 }

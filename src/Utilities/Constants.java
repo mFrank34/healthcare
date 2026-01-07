@@ -2,25 +2,25 @@ package Utilities;
 
 /**
  * Constance that used within the program that don't change at all like table headers or cvs headers
- * makes it easier to manage if something need to made change like tables load in wrong order, some what
+ * makes it easier to manage if something need to made change like tables load in wrong order, somewhat
  * repaired here
  */
 public class Constants {
 
     // Staff columns
     public static final String[] STAFF = {
-            "staff_id",
-            "first_name",
-            "last_name",
-            "phone_number",
-            "email",
-            "employment_status",
-            "start_date",
-            "role",
-            "department",
-            "facility_id",
-            "access_level",
-            "line_manager"
+            "Staff ID",
+            "First Name",
+            "Last Name",
+            "Role",
+            "Department",
+            "Facility ID",
+            "Phone Number",
+            "Email",
+            "Employment Status",
+            "Start Date",
+            "Line Manager",
+            "Access Level"
     };
 
     // Referral columns
@@ -45,85 +45,87 @@ public class Constants {
 
     // Prescription columns
     public static final String[] PRESCRIPTIONS = {
-            "prescription_id",
-            "patient_id",
-            "clinician_id",
-            "appointment_id",
-            "prescription_date",
-            "medication_name",
-            "dosage",
-            "frequency",
-            "duration_days",
-            "quantity",
-            "instructions",
-            "pharmacy_name",
-            "status"
+            "Prescription ID",
+            "Patient ID",
+            "Clinician ID",
+            "Appointment ID",
+            "Prescription Date",
+            "Medication Name",
+            "Dosage",
+            "Frequency",
+            "Duration (Days)",
+            "Quantity",
+            "Instructions",
+            "Pharmacy Name",
+            "Status",
+            "Issue Date",
+            "Collection Date"
     };
 
     // Patient columns
     public static final String[] PATIENTS = {
-            "patient_id",
-            "first_name",
-            "last_name",
-            "date_of_birth",
-            "nhs_number",
-            "gender",
-            "phone_number",
-            "email",
-            "address",
-            "postcode",
-            "emergency_contact_name",
-            "emergency_contact_phone",
-            "registration_date",
-            "gp_surgery_id"
+            "Patient ID",
+            "First Name",
+            "Last Name",
+            "Date of Birth",
+            "NHS Number",
+            "Gender",
+            "Phone Number",
+            "Email",
+            "Address",
+            "Postcode",
+            "Emergency Contact Name",
+            "Emergency Contact Phone",
+            "Registration Date",
+            "GP Surgery ID"
     };
 
     // Facility columns
     public static final String[] FACILITIES = {
-            "facility_id",
-            "facility_name",
-            "facility_type",
-            "address",
-            "postcode",
-            "phone_number",
-            "email",
-            "opening_hours",
-            "manager_name",
-            "capacity",
-            "specialities_offered"
+            "Facility ID",
+            "Facility Name",
+            "Facility Type",
+            "Address",
+            "Postcode",
+            "Phone Number",
+            "Email",
+            "Opening Hours",
+            "Manager Name",
+            "Capacity",
+            "Specialities Offered"
     };
 
     // Clinician columns
     public static final String[] CLINICIANS = {
-            "clinician_id",
-            "first_name",
-            "last_name",
-            "title",
-            "speciality",
-            "gmc_number",
-            "phone_number",
-            "email",
-            "workplace_id",
-            "workplace_type",
-            "employment_status",
-            "start_date"
+            "Clinician ID",
+            "First Name",
+            "Last Name",
+            "Title",
+            "Speciality",
+            "GMC Number",
+            "Phone Number",
+            "Email",
+            "Workplace ID",
+            "Workplace Type",
+            "Employment Status",
+            "Start Date"
     };
 
     // Appointment columns
     public static final String[] APPOINTMENTS = {
-            "appointment_id",
-            "patient_id",
-            "clinician_id",
-            "facility_id",
-            "appointment_date",
-            "appointment_time",
-            "duration_minutes",
-            "appointment_type",
-            "status",
-            "reason_for_visit",
-            "notes",
-            "created_date",
-            "last_modified"
+            "Appointment ID",
+            "Patient ID",
+            "Clinician ID",
+            "Facility ID",
+            "Appointment Date",
+            "Appointment Time",
+            "Duration (Minutes)",
+            "Appointment Type",
+            "Status",
+            "Reason for Visit",
+            "Notes",
+            "Created Date",
+            "Last Modified"
     };
 
     public static final String TITLE_SUCCESS = "Success";

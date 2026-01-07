@@ -13,19 +13,21 @@ public class PrescriptionRepository extends BaseRepository<Prescription> {
     @Override
     protected Prescription parse(String[] p) {
         return new Prescription(
-                p[0], // prescriptionId
-                p[1], // patientId
-                p[2], // clinicianId
-                p[3], // appointmentId
-                p[4], // prescriptionDate
-                p[5], // medicationName
-                p[6], // dosage
-                p[7], // frequency
+                p[0],  // prescriptionId
+                p[1],  // patientId
+                p[2],  // clinicianId
+                p[3],  // appointmentId
+                p[4],  // prescriptionDate
+                p[5],  // medicationName
+                p[6],  // dosage
+                p[7],  // frequency
                 Integer.parseInt(p[8]), // durationDays
-                p[9], // quantity
+                p[9],  // quantity
                 p[10], // instructions
                 p[11], // pharmacyName
-                p[12]  // status
+                p[12], // status
+                p[13], // issueDate
+                p[14]  // collectionDate
         );
     }
 
@@ -44,7 +46,9 @@ public class PrescriptionRepository extends BaseRepository<Prescription> {
                 obj.getQuantity(),
                 obj.getInstructions(),
                 obj.getPharmacyName(),
-                obj.getStatus()
+                obj.getStatus(),
+                obj.getIssueDate(),
+                obj.getCollectionDate()
         );
     }
 
@@ -63,7 +67,9 @@ public class PrescriptionRepository extends BaseRepository<Prescription> {
                 obj.getQuantity(),
                 obj.getInstructions(),
                 obj.getPharmacyName(),
-                obj.getStatus()
+                obj.getStatus(),
+                obj.getIssueDate(),
+                obj.getCollectionDate()
         };
     }
 

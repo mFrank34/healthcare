@@ -141,6 +141,9 @@ public class ApplicationView extends JFrame {
         });
     }
 
+    /**
+     * refreshes all connected tables
+     */
     public void refresh() {
         facilityPanel.refresh(controller.getFacilitiesData());
         appointmentPanel.refresh(controller.getAppointmentsData());
@@ -151,30 +154,58 @@ public class ApplicationView extends JFrame {
         referralPanel.refresh(controller.getReferralsData());
     }
 
+    /**
+     * get selected facility
+     * @return gets string of id number
+     */
     public String getSelectedFacility() {
         return facilityPanel.getSelectedId();
     }
 
+    /**
+     * get selected Appointment
+     * @return gets the string of id number
+     */
     public String getSelectedAppointment() {
         return appointmentPanel.getSelectedId();
     }
 
+    /**
+     * gets the selected prescription
+     * @return gets the string of id number
+     */
     public String getSelectedPrescription() {
         return prescriptionPanel.getSelectedId();
     }
 
+    /**
+     * gets the selected Patient
+     * @return returns the string of id number
+     */
     public String getSelectedPatient() {
         return patientPanel.getSelectedId();
     }
 
+    /**
+     * gets the selected clinician
+     * @return returns the string of id number
+     */
     public String getSelectedClinician() {
         return clinicianPanel.getSelectedId();
     }
 
+    /**
+     * gets the selected Staff
+     * @return returns the string of id number
+     */
     public String getSelectedStaff() {
         return staffPanel.getSelectedId();
     }
 
+    /**
+     * returns the selected Referral
+     * @return returns the string of id number
+     */
     public String getSelectedReferral() {
         return referralPanel.getSelectedId();
     }

@@ -6,6 +6,11 @@ import java.util.List;
 
 public class Handler {
 
+    /**
+     * write line to a cvs file
+     * @param filename the file name
+     * @param lines lines that need to be writen to file
+     */
     public static void writeLines(String filename, List<String> lines) {
         createFileIfNotExists(filename);
 
@@ -19,6 +24,11 @@ public class Handler {
         }
     }
 
+    /**
+     * adding lines to open cvs file
+     * @param filename the file name
+     * @param line the line that need to be added at the end of file
+     */
     public static void appendLine(String filename, String line) {
         createFileIfNotExists(filename);
 
@@ -30,6 +40,11 @@ public class Handler {
         }
     }
 
+    /**
+     * read the file and returns it as list
+     * @param filename the file name
+     * @return list of stings to be added to class
+     */
     public static ArrayList<String> readLines(String filename) {
         ArrayList<String> lines = new ArrayList<>();
         createFileIfNotExists(filename);
@@ -47,6 +62,11 @@ public class Handler {
         return lines;
     }
 
+    /**
+     * reads the lines from cvs file
+     * @param filename the file name
+     * @return returns a table of information to be turned into model pattern
+     */
     public static List<String[]> readCSV(String filename) {
         List<String> raw = readLines(filename);
         List<String[]> table = new ArrayList<>();
@@ -57,6 +77,10 @@ public class Handler {
         return table;
     }
 
+    /**
+     * Error handling for if file doesn't exist
+     * @param filename the file it's trying to open
+     */
     public static void createFileIfNotExists(String filename) {
         try {
             File file = new File(filename);

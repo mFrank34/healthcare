@@ -12,6 +12,10 @@ public class FormPanel extends JPanel {
     private final JButton submitButton = new JButton("Submit");
     private final JButton cancelButton = new JButton("Cancel");
 
+    /**
+     * Form Constructor for creating a form prefab to use within application layer
+     * @param labels label for the form
+     */
     public FormPanel(String[] labels) {
         setLayout(new BorderLayout(10, 10));
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -33,6 +37,10 @@ public class FormPanel extends JPanel {
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
+    /**
+     * get the user inputted data from the fields
+     * @return return list of inputted data
+     */
     public List<String> getAllData() {
         List<String> data = new ArrayList<>();
         for (JTextField field : fields) {
@@ -41,22 +49,38 @@ public class FormPanel extends JPanel {
         return data;
     }
 
+    /**
+     * set the values for the form, for editing other data set
+     * @param index index of the label
+     * @param value the editing data that need to changed
+     */
     public void setValue(int index, String value) {
         if (index >= 0 && index < fields.size()) {
             fields.get(index).setText(value);
         }
     }
 
+    /**
+     * clear out the text field and reset them
+     */
     public void clearFields() {
         for (JTextField field : fields) {
             field.setText("");
         }
     }
 
+    /**
+     * event listener for submit button
+     * @param l the action listen that will be listening
+     */
     public void addSubmitListener(ActionListener l) {
         submitButton.addActionListener(l);
     }
 
+    /**
+     * event listener for submit button
+     * @param l the action listen that will be listening
+     */
     public void addCancelListener(ActionListener l) {
         cancelButton.addActionListener(l);
     }

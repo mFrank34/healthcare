@@ -20,7 +20,7 @@ public interface Repository<T> {
 
     /**
      * return the all the data within class
-     * @return collection of vaules
+     * @return collection of values
      */
     Collection<T> getAll();    // ✔️ generic
 

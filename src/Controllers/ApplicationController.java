@@ -12,42 +12,86 @@ public class ApplicationController {
     private final Application model;
     private final ApplicationView view;
 
+    /**
+     * Application Layer for running the application system like triggering
+     *
+     * @param model model of Application layer
+     * @param view  viewer of Application layer
+     */
     public ApplicationController(Application model, ApplicationView view) {
         this.model = model;
         this.view = view;
         view.setController(this);
     }
 
+    /**
+     * gets the Clinicians date from model
+     * @return returns the data
+     */
     public Object[][] getCliniciansData() {
         return model.clinicians.toTableData();
     }
 
+    /**
+     * Gets the facilities date from the model
+     * @return returns the facilities date
+     */
     public Object[][] getFacilitiesData() {
         return model.facilities.toTableData();
     }
 
+    /**
+     * Gets the Appointment date
+     * @return returns the Appointment data
+     */
     public Object[][] getAppointmentsData() {
         return model.appointments.toTableData();
     }
 
+    /**
+     * Gets the Prescription data
+     * @return returns prescriptions data
+     */
     public Object[][] getPrescriptionsData() {
         return model.prescriptions.toTableData();
     }
 
+    /**
+     * Gets the Patients Data
+     * @return returns the patients data
+     */
     public Object[][] getPatientsData() {
         return model.patients.toTableData();
     }
 
+    /**
+     * Gets the Staff data
+     * @return returns the staff data
+     */
     public Object[][] getStaffData() {
         return model.staff.toTableData();
     }
 
+    /**
+     * Gets the Referrals Data
+     * @return returns the referrals data
+     */
     public Object[][] getReferralsData() {
         return model.referrals.toTableData();
     }
 
+    /*
+    This Section below are all very similar to one another due to them following the same design pattern
+    where each section has it own controller and controllers for the form pattern which controller their own set
+    of rules...
+     */
+
     // ==================== Facility Management =======================
 
+    /**
+     * functions for the facility add
+     * that opens a new window for creating new facility
+     */
     public void addFacilities() {
         Facility facility = new Facility();
 
@@ -61,6 +105,10 @@ public class ApplicationController {
         view.refresh();
     }
 
+    /**
+     * function for editing a facilit
+     * that opens a new window with data filed in
+     */
     public void editFacilities() {
         String id = view.getSelectedFacility();
         Facility facility = model.facilities.getById(id);
@@ -78,6 +126,10 @@ public class ApplicationController {
         view.refresh();
     }
 
+    /**
+     * function for removing the Facilities
+     * removed them though id values
+     */
     public void removeFacilities() {
         String id = view.getSelectedFacility();
         model.facilities.remove(id);
@@ -134,7 +186,7 @@ public class ApplicationController {
         PrescriptionView prescriptionView = new PrescriptionView();
         PrescriptionValidator prescriptionValidator = new PrescriptionValidator();
 
-        PrescriptionController Controller = new PrescriptionController(
+        PrescriptionController controller = new PrescriptionController(
                 prescription, prescriptionView, prescriptionValidator, model.prescriptions
         );
 
@@ -150,11 +202,11 @@ public class ApplicationController {
         PrescriptionView prescriptionView = new PrescriptionView();
         PrescriptionValidator prescriptionValidator = new PrescriptionValidator();
 
-        PrescriptionController Controller = new PrescriptionController(
+        PrescriptionController controller = new PrescriptionController(
                 prescription, prescriptionView, prescriptionValidator, model.prescriptions
         );
 
-        Controller.populate(filledForm);
+        controller.populate(filledForm);
         prescriptionView.setVisible(true);
         view.refresh();
     }
@@ -173,7 +225,7 @@ public class ApplicationController {
         PatientView patientView = new PatientView();
         PatientValidator patientValidator = new PatientValidator();
 
-        PatientController Controller = new PatientController(
+        PatientController controller = new PatientController(
                 patient, patientView, patientValidator, model.patients
         );
 
@@ -212,7 +264,7 @@ public class ApplicationController {
         ClinicianView clinicianView = new ClinicianView();
         ClinicianValidator clinicianValidator = new ClinicianValidator();
 
-        CliniciansController Controller = new CliniciansController(
+        CliniciansController controller = new CliniciansController(
                 clinician, clinicianView, clinicianValidator, model.clinicians
         );
         clinicianView.setVisible(true);
@@ -250,7 +302,7 @@ public class ApplicationController {
         StaffView staffView = new StaffView();
         StaffValidator staffValidator = new StaffValidator();
 
-        StaffController Controller = new StaffController(
+        StaffController controller = new StaffController(
                 staff, staffView, staffValidator, model.staff
         );
 
@@ -289,7 +341,7 @@ public class ApplicationController {
         ReferralView referralView = new ReferralView();
         ReferralValidator referralValidator = new ReferralValidator();
 
-        ReferralController Controller = new ReferralController(
+        ReferralController controller = new ReferralController(
                 referral, referralView, referralValidator, model.referrals
         );
 

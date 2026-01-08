@@ -1,5 +1,6 @@
 package Repository;
 
+import FileHandlers.Handler;
 import Models.Appointment;
 import Utilities.Constants;
 
@@ -51,7 +52,7 @@ public class AppointmentRepository extends BaseRepository<Appointment> {
      */
     @Override
     protected String toCSV(Appointment obj) {
-        return String.join(",",
+        return Handler.toCSVLine(
                 obj.getAppointmentId(),
                 obj.getPatientId(),
                 obj.getClinicianId(),

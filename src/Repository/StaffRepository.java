@@ -1,5 +1,6 @@
 package Repository;
 
+import FileHandlers.Handler;
 import Models.Staff;
 import Utilities.Constants;
 
@@ -30,7 +31,7 @@ public class StaffRepository extends BaseRepository<Staff> {
 
     @Override
     protected String toCSV(Staff obj) {
-        return String.join(",",
+        return Handler.toCSVLine(
                 obj.getStaffId(),
                 obj.getFirstName(),
                 obj.getLastName(),

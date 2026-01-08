@@ -1,5 +1,6 @@
 package Repository;
 
+import FileHandlers.Handler;
 import Models.Prescription;
 import Utilities.Constants;
 
@@ -33,7 +34,7 @@ public class PrescriptionRepository extends BaseRepository<Prescription> {
 
     @Override
     protected String toCSV(Prescription obj) {
-        return String.join(",",
+        return Handler.toCSVLine(
                 obj.getPrescriptionId(),
                 obj.getPatientId(),
                 obj.getClinicianId(),

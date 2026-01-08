@@ -1,5 +1,6 @@
 package Repository;
 
+import FileHandlers.Handler;
 import Models.Referral;
 import Utilities.Constants;
 
@@ -34,7 +35,7 @@ public class ReferralRepository extends BaseRepository<Referral> {
 
     @Override
     protected String toCSV(Referral obj) {
-        return String.join(",",
+        return Handler.toCSVLine(
                 obj.getReferralId(),
                 obj.getPatientId(),
                 obj.getReferringClinicianId(),

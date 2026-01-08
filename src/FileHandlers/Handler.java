@@ -72,9 +72,77 @@ public class Handler {
         List<String[]> table = new ArrayList<>();
 
         for (String line : raw) {
-            table.add(line.split(",")); // simple CSV parsing
+            table.add(splitCSV(line));
         }
+
         return table;
+    }
+
+    /**
+     * Proper CSV parser (supports quotes, commas, escaped quotes)
+     * @param
+     */
+    private static String[] splitCSV(String line) {
+        List<String> result = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
+        boolean inQuotes = false;
+
+        for (int i = 0; i < line.length(); i++) {
+            char c = line.charAt(i);
+
+            if (c == '"') {
+                inQuotes = !inQuotes; // toggle quote state
+            } else if (c == ',' && !inQuotes) {
+                result.add(unescapeCSV(sb.toString().trim()));
+                sb.setLength(0);
+            } else {
+                sb.append(c);
+            }
+        }
+
+        result.add(unescapeCSV(sb.toString().trim()));
+        return result.toArray(new String[0]);
+    }
+
+    /**
+     * Unescape CSV field (remove surrounding quotes, fix double quotes)
+     * @param
+     */
+    private static String unescapeCSV(String value) {
+        if (value.startsWith("\"") && value.endsWith("\"")) {
+            value = value.substring(1, value.length() - 1);
+        }
+        return value.replace("\"\"", "\"");
+    }
+
+    /**
+     * Escape CSV fields for writing
+     */
+    public static String toCSVLine(String... fields) {
+        String[] escaped = new String[fields.length];
+        for (int i = 0; i < fields.length; i++) {
+            escaped[i] = escapeCSV(fields[i]);
+        }
+        return String.join(",", escaped);
+    }
+
+    /**
+     *
+     * @param value
+     * @return
+     */
+    private static String escapeCSV(String value) {
+        if (value == null) return "";
+
+        boolean mustQuote =
+                value.contains(",") ||
+                        value.contains("\"") ||
+                        value.contains("\n") ||
+                        value.contains("\r");
+
+        String escaped = value.replace("\"", "\"\"");
+
+        return mustQuote ? "\"" + escaped + "\"" : escaped;
     }
 
     /**

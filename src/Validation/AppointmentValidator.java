@@ -24,7 +24,7 @@ public class AppointmentValidator implements Validator {
         // appointment_date -> index 4
         if (isBlank(data, 4)) {
             errors.add("Appointment date is required");
-        } else if (!isValidDate(data.get(4))) {
+        } else if (isValidDate(data.get(4))) {
             errors.add("Appointment date must be in format YYYY-MM-DD");
         }
 
@@ -38,7 +38,7 @@ public class AppointmentValidator implements Validator {
         // duration_minutes -> index 6
         if (isBlank(data, 6)) {
             errors.add("Duration is required");
-        } else if (!isNumeric(data.get(6))) {
+        } else if (isNumeric(data.get(6))) {
             errors.add("Duration must be a number");
         } else if (Integer.parseInt(data.get(6)) <= 0) {
             errors.add("Duration must be greater than 0 minutes");

@@ -24,7 +24,7 @@ public class ReferralValidator implements Validator {
         // referral_date -> index 3
         if (isBlank(data, 3)) {
             errors.add("Referral date is required");
-        } else if (!isValidDate(data.get(3))) {
+        } else if (isValidDate(data.get(3))) {
             errors.add("Referral date must be in format YYYY-MM-DD");
         }
 

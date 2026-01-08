@@ -24,14 +24,14 @@ public class PrescriptionValidator implements Validator {
         // prescription_date -> index 4
         if (isBlank(data, 4)) {
             errors.add("Prescription date is required");
-        } else if (!isValidDate(data.get(4))) {
+        } else if (isValidDate(data.get(4))) {
             errors.add("Prescription date must be in format YYYY-MM-DD");
         }
 
         // duration_days -> index 8
         if (isBlank(data, 8)) {
             errors.add("Duration days is required");
-        } else if (!isNumeric(data.get(8))) {
+        } else if (isNumeric(data.get(8))) {
             errors.add("Duration days must be a number");
         } else if (Integer.parseInt(data.get(8)) <= 0) {
             errors.add("Duration days must be greater than 0");
@@ -39,14 +39,14 @@ public class PrescriptionValidator implements Validator {
 
         // issue_date -> index 13 (optional but must be valid if present)
         if (!isBlank(data, 13)) {
-            if (!isValidDate(data.get(13))) {
+            if (isValidDate(data.get(13))) {
                 errors.add("Issue date must be in format YYYY-MM-DD");
             }
         }
 
         // collection_date -> index 14 (optional but must be valid if present)
         if (!isBlank(data, 14)) {
-            if (!isValidDate(data.get(14))) {
+            if (isValidDate(data.get(14))) {
                 errors.add("Collection date must be in format YYYY-MM-DD");
             }
         }

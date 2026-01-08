@@ -24,28 +24,28 @@ public class FacilityValidator implements Validator {
         // postcode -> index 4
         if (isBlank(data, 4)) {
             errors.add("Postcode is required");
-        } else if (!isValidPostcode(data.get(4))) {
+        } else if (isValidPostcode(data.get(4))) {
             errors.add("Postcode format is invalid");
         }
 
         // phone_number -> index 5
         if (isBlank(data, 5)) {
             errors.add("Phone number is required");
-        } else if (!isValidPhone(data.get(5))) {
+        } else if (isValidPhone(data.get(5))) {
             errors.add("Phone number format is invalid");
         }
 
         // email -> index 6
         if (isBlank(data, 6)) {
             errors.add("Email is required");
-        } else if (!isValidEmail(data.get(6))) {
+        } else if (isValidEmail(data.get(6))) {
             errors.add("Email format is invalid");
         }
 
         // capacity -> index 9
         if (isBlank(data, 9)) {
             errors.add("Capacity is required");
-        } else if (!isNumeric(data.get(9))) {
+        } else if (isNumeric(data.get(9))) {
             errors.add("Capacity must be a number");
         } else if (Integer.parseInt(data.get(9)) <= 0) {
             errors.add("Capacity must be greater than 0");

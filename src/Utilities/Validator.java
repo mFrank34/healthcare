@@ -22,7 +22,7 @@ public interface Validator {
      * @return return the state
      */
     default boolean isValidDate(String value) {
-        return value.matches("\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])");
+        return !value.matches("\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])");
     }
 
     /**
@@ -31,7 +31,7 @@ public interface Validator {
      * @return return the state
      */
     default boolean isValidEmail(String value) {
-        return value.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
+        return !value.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
     }
 
     /**
@@ -40,7 +40,7 @@ public interface Validator {
      * @return return the state
      */
     default boolean isValidPhone(String value) {
-        return value.matches("\\+?[0-9 ]{7,15}");
+        return !value.matches("\\+?[0-9\\- ]{7,20}");
     }
 
     /**
@@ -49,7 +49,7 @@ public interface Validator {
      * @return return the state
      */
     default boolean isNumeric(String value) {
-        return value.matches("\\d+");
+        return !value.matches("\\d+");
     }
 
     /**
@@ -58,6 +58,6 @@ public interface Validator {
      * @return returns the state
      */
     default boolean isValidPostcode(String value) {
-        return value.matches("^[A-Za-z]{1,2}\\d[A-Za-z\\d]? ?\\d[A-Za-z]{2}$");
+        return !value.matches("^[A-Za-z]{1,2}\\d[A-Za-z\\d]? ?\\d[A-Za-z]{2}$");
     }
 }

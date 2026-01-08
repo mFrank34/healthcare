@@ -10,13 +10,13 @@ The application was created as part of an academic assignment and reflects the u
 
 The purpose of this project is to:
 - Apply object-oriented design concepts in a real-world themed application
-- Translate analysis and design artefacts into functional Java code
-- Organise a medium-sized codebase in a clear and maintainable way
+- Translate analysis and design artifacts into functional Java code
+- Organize a medium-sized codebase in a clear and maintainable way
 - Demonstrate understanding of system structure and data handling
 
 ## Project Structure
 
-The repository is organised as follows:
+The repository is organized as follows:
 
 - **src/**  
   Contains all Java source files, including the main application logic and supporting classes.
@@ -28,7 +28,7 @@ The repository is organised as follows:
   Stores raw data before it is transformed or used by the system.
 
 - **diagrams/**  
-  Includes design artefacts such as class diagrams and other analysis documents created during the planning phase.
+  Includes design artifacts such as class diagrams and other analysis documents created during the planning phase.
 
 - **bin/**  
   Contains compiled output files generated during execution.

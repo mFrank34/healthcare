@@ -1,7 +1,7 @@
-package Controllers;
+package controllers;
 
-import Utilities.Validator;
-import Views.BaseForm;
+import utilities.Validator;
+import views.BaseForm;
 import java.util.List;
 
 public abstract class BaseController<T> {

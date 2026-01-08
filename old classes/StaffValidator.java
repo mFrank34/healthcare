@@ -1,7 +1,7 @@
-package Validation;
+package validation;
 
-import Utilities.Validator;
-import Models.Staff;
+import utilities.Validator;
+import models.Staff;
 import java.util.ArrayList;
 import java.util.List;
 

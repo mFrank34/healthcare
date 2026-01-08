@@ -1,4 +1,4 @@
-package FactoryUI;
+package factory;
 
 import javax.swing.*;
 import java.awt.*;

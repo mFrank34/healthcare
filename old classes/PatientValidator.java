@@ -1,7 +1,7 @@
-package Validation;
+package validation;
 
-import Utilities.Validator;
-import Models.Patient;
+import utilities.Validator;
+import models.Patient;
 import java.util.ArrayList;
 import java.util.List;
 

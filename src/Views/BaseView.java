@@ -21,7 +21,7 @@ public abstract class BaseView<T> extends JFrame{
     public BaseView(String title, String[] labels) {
         setTitle(title);
         this.labels = labels;
-        setSize(600, 400);
+        setSize(600, 550);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }

@@ -2,24 +2,62 @@ package Utilities;
 
 import java.util.List;
 
-/**
- * system to validate items entering a form field
- */
 public interface Validator {
-    /**
-     * validate with list of strings that was given
-     * @param data list of data to check
-     * @return returns list of items that validated
-     */
+
     List<String> validate(List<String> data);
 
     /**
-     * blank section check
-     * @param data data from forms
-     * @param index index of form data given
-     * @return returns true || false depending on state
+     * Checking text fields are empty
+     * @param data data of the list
+     * @param index index of items selected
+     * @return true or false depending on selected target
      */
     default boolean isBlank(List<String> data, int index) {
         return data.get(index).trim().isEmpty();
+    }
+
+    /**
+     * regex for testing the corrected date
+     * @param value targe to be checked
+     * @return return the state
+     */
+    default boolean isValidDate(String value) {
+        return value.matches("\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])");
+    }
+
+    /**
+     * checking the email though regex's
+     * @param value selected target
+     * @return return the state
+     */
+    default boolean isValidEmail(String value) {
+        return value.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
+    }
+
+    /**
+     * checking if they had valid phone number
+     * @param value target to be checked
+     * @return return the state
+     */
+    default boolean isValidPhone(String value) {
+        return value.matches("\\+?[0-9 ]{7,15}");
+    }
+
+    /**
+     * checking if the target is number
+     * @param value target to get checked
+     * @return return the state
+     */
+    default boolean isNumeric(String value) {
+        return value.matches("\\d+");
+    }
+
+    /**
+     * checking the zip code though the regex's
+     * @param value target to get checked
+     * @return returns the state
+     */
+    default boolean isValidPostcode(String value) {
+        return value.matches("^[A-Za-z]{1,2}\\d[A-Za-z\\d]? ?\\d[A-Za-z]{2}$");
     }
 }

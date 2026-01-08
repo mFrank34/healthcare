@@ -19,7 +19,7 @@ public class TablePanel {
      * creates a table based of the contents
      *
      * @param columns the columns of the table
-     * @param data    the data within the table
+     * @param data the data within the table
      * @return return panel with the data in it
      */
     public static JPanel createTablePanel(

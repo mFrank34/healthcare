@@ -63,7 +63,7 @@ public class PrescriptionRepository extends BaseRepository<Prescription> {
                 obj.getMedicationName(),
                 obj.getDosage(),
                 obj.getFrequency(),
-                String.valueOf(obj.getDurationDays()),
+                obj.getDurationDays(),
                 obj.getQuantity(),
                 obj.getInstructions(),
                 obj.getPharmacyName(),

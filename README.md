@@ -24,10 +24,10 @@ The repository is organised as follows:
 - **data/**  
   Holds processed data files used by the application.
 
-- **UntouchedData/**  
+- **untouched/**  
   Stores raw data before it is transformed or used by the system.
 
-- **Diagrams/**  
+- **diagrams/**  
   Includes design artefacts such as class diagrams and other analysis documents created during the planning phase.
 
 - **bin/**  

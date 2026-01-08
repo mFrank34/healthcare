@@ -80,7 +80,7 @@ public class Handler {
 
     /**
      * Proper CSV parser (supports quotes, commas, escaped quotes)
-     * @param
+     * @param line that is to be split up for cvs handling
      */
     private static String[] splitCSV(String line) {
         List<String> result = new ArrayList<>();
@@ -106,7 +106,8 @@ public class Handler {
 
     /**
      * Unescape CSV field (remove surrounding quotes, fix double quotes)
-     * @param
+     * Removes CSV quoting from a field
+     * @param value the unescaped, plain string value
      */
     private static String unescapeCSV(String value) {
         if (value.startsWith("\"") && value.endsWith("\"")) {
@@ -116,7 +117,9 @@ public class Handler {
     }
 
     /**
-     * Escape CSV fields for writing
+     * Converts an array of field values into a single, valid CSV line.
+     * @param fields fields the raw field values to encode into a CSV line
+     * @return properly escaped CSV row as a single string
      */
     public static String toCSVLine(String... fields) {
         String[] escaped = new String[fields.length];
@@ -127,9 +130,9 @@ public class Handler {
     }
 
     /**
-     *
-     * @param value
-     * @return
+     * Escapes a single field so it can be safely written to a CSV file
+     * @param value the raw field value to escape (maybe null)
+     * @return a CSV-safe representation of the field
      */
     private static String escapeCSV(String value) {
         if (value == null) return "";
